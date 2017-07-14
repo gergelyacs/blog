@@ -113,46 +113,46 @@ Néhány esetben ez könnyű, például amikor valamely rekord a legtöbb támad
 
 Általános esetben viszont meg kell becsülni minden plauzibilis támadó sikervalószínűségét, ami általában lehetetlen
 (ez persze nem ment fel a GDPR kötelezettsége alól, amely [előír](https://www.privacy-regulation.eu/hu/35.htm) egy ilyen
-"best-effort" jellegű elemzést az adat felhasználásától függően). Honnan lehetne tudni, hogy több ezer beteg közül kinek van olyan ismerőse aki hozzáfér a kórházi adatokhoz (pl. egy szomszéd, barát, családtag, munkáltató vagy kolléga, biztosító, bank, stb.) és az mit tud egy betegről vagy betegek demográfiai adatáról ami a beteg egyedi azonosítója lehet * a populációban *? 
+"best-effort" jellegű elemzést az adat felhasználásától függően). Honnan lehetne tudni, hogy több ezer beteg közül kinek van olyan ismerőse aki hozzáfér a kórházi adatokhoz (pl. egy szomszéd, barát, családtag, munkáltató vagy kolléga, biztosító, bank, stb.) és az mit tud egy betegről vagy betegek demográfiai adatáról ami a beteg egyedi azonosítója lehet *a populációban*? 
 
 Vegyük Terike néni esetét a vidéken élő K. Ferenccel, de most Terike néni csak az 5. táblázathoz fér hozzá. Ha Terike néni ismeri K. Ferenc nevét, lakhelyét (8423) születési évét (1971), akkor még nem tudja eldönteni, hogy a 3. vagy 4. rekord tartozik hozzá ebben a táblázatban. Ha viszont tudja, hogy a szomszédja gyakran köhög (a pontos betegségét viszont nem ismeri), akkor szinte teljesen biztos lehet benne, hogy a 4. rekord tartozik hozzá mivel a táblázatban más betegségnek nem tünete a köhögés. Vagyis ebben az esetben a 4. rekord bizonyosan személyes adat, amelynek egyedi azonosítója a neve, az irányítószáma, a születési éve, és a betegségének egy tünete (köhögés). 
 
 | Rekord | Nem | Irányítószám | Születési dátum | Betegség |
 |--- | ---|---|---| --- |
-|1. | Kovács Attila | 1123 | 1943-*-02 | Meningitis |
-|2. | Kovács Attila |1123| 1943-*-02 | Appendicitis |
-|3. | Kovács Ferenc | 8423 | 1971-01-* | Gastroenteritis |
-|4. | Kovács Ferenc | 8423 | 1971-01-* | Bronchitis |
+|1. | Kovács Attila | 1123 | 1943-\*-02 | Meningitis |
+|2. | Kovács Attila |1123| 1943-\*-02 | Appendicitis |
+|3. | Kovács Ferenc | 8423 | 1971-01-\* | Gastroenteritis |
+|4. | Kovács Ferenc | 8423 | 1971-01-\* | Bronchitis |
 |5. | Nagy Tibor | 1313 | 1981-\*-\* | Appendicitis |
 |6. | Nagy Tibor | 1313 | 1981-\*-\* | Meningitis |
 5\. táblázat: Kórházi adatok 
 
-Látható, hogy nagyon ** nehéz feltételezéséket szabni egy támadó háttértudására és így meghatározni a plauzbilitását. ** Napjainkban egyre több adatot osztanak meg magukról emberek akarva vagy akaratlan, így nem lehet tudni, hogy ki rendelkezik elég tudással ahhoz, megtalálja az illető rekordját egy adatbázisban. 
+Látható, hogy nagyon **nehéz feltételezéséket szabni egy támadó háttértudására és így meghatározni a plauzbilitását**. Napjainkban egyre több adatot osztanak meg magukról emberek akarva vagy akaratlan, így nem lehet tudni, hogy ki rendelkezik elég tudással ahhoz, megtalálja az illető rekordját egy adatbázisban. 
 
 
 ### Adatok egyedisége az adatbázisban és a populációban
-A fenti nehézségek ellenére a GDPR [előírhatja](https://www.privacy-regulation.eu/hu/35.htm) az adatok azonosíthatóságának best-effort elemzését, aminek megítélése sajnos elég szubjektív, hiszen mindig kimaradhat egy Terike néni a felsorolásból, akinek létezése csak később lesz nyilvánvaló. Vagyis ** az adat azonosíthatósága (és személyes jellege) idővel változhat. ** Ennek a törvény tudatában van, és ezért ezekben az esetekben [újabb](https://www.privacy-regulation.eu/hu/35.htm) analízist elő.
+A fenti nehézségek ellenére a GDPR [előírhatja](https://www.privacy-regulation.eu/hu/35.htm) az adatok azonosíthatóságának best-effort elemzését, aminek megítélése sajnos elég szubjektív, hiszen mindig kimaradhat egy Terike néni a felsorolásból, akinek létezése csak később lesz nyilvánvaló. Vagyis **az adat azonosíthatósága (és személyes jellege) idővel változhat**. Ennek a törvény tudatában van, és ezért ezekben az esetekben [újabb](https://www.privacy-regulation.eu/hu/35.htm) analízist elő.
 
 Az azonosíthatóság eldöntéséhez szükséges tudnunk, hogy egy rekord attribútum-értékei mennyire egyediek a populációban (és nem az adatbázisban), ahonnan a rekord számazik. Visszautalva az első példára, ha több Kovács Ferenc nevű ember él a XI. kerületben, akkor az 1. táblázat 4. rekordja nem személyes adat Terike néni (és valószínűleg senki más) számára. Annak eldöntése, hogy egy rekord egyedi-e az adott populációban viszont általában nehéz, hiszen ritkán ismerjük a populáció minden tagját. Ugyan léteznek [statisztikai modellek és eszközök rekordok egyediségének becslésére egy populációban]( http://www.ihsn.org/sites/default/files/resources/ihsn-working-paper-007-Oct27.pdf), ezen modellek többsége legjobb esetben is csak az átlagos de nem a legrosszabb esetekre adnak valamilyen mérőszámot rekordok egyediségére.    
   
-A személyes adatok egy egyszerűbb és objektívebb indikátora a gyakorlatban a rekordok egyedisége ** az adatbázisban ** (és nem a populációban).
+A személyes adatok egy egyszerűbb és objektívebb indikátora a gyakorlatban a rekordok egyedisége **az adatbázisban** (és nem a populációban).
 Egy rekord egyedi, ha attribútumok egy részhalmazának-értékei (amit egy plauzibilis támadó ismerhet és így azonosíthatja a rekord tulajdonosát) egyediek rá nézve
 az adatbázisban, vagyis nincs más rekord aminek ilyen attribútum-értékei lennének. 
 A fenti példában, ha K. Ferenc egyedi a nemét, irányítószámát, és születési
 dátumát nézve a 2. táblázatban, akkor Terike néni könnyen lokalizálhatja vidéki szomszédjának rekordját. Ha viszont k rekord rendelkezik ilyen
-attribútum értékekkel, akkor Terike néni nem tudja meghatározni, hogy melyik rekord tartozik a szomszédjához, * feltéve, hogy nincs más információja szomszédja betegségének tüneteiről * (pontosabban ha tippel, akkor az esélye, hogy eltalálja a szomszédja rekordját 1/k). Ezt illusztrálja az 5. táblázat, ahol k = 2. 
+attribútum értékekkel, akkor Terike néni nem tudja meghatározni, hogy melyik rekord tartozik a szomszédjához, *feltéve, hogy nincs más információja szomszédja betegségének tüneteiről* (pontosabban ha tippel, akkor az esélye, hogy eltalálja a szomszédja rekordját 1/k). Ezt illusztrálja az 5. táblázat, ahol k = 2. 
 
 | Rekord | Nem | Irányítószám | Születési dátum  | Betegség |
 |--- | ---|---|---| --- |
-|1. | Férfi | 1123 | 1943-*-02 | Meningitis |
-|2. | Férfi |1123| 1943-*-02 | Appendicitis |
-|3. | Férfi | 8423 | 1971-01-* | Bronchitis |
-|4. | Férfi | 8423 | 1971-01-* | Appendicitis |
+|1. | Férfi | 1123 | 1943-\*-02 | Meningitis |
+|2. | Férfi |1123| 1943-\*-02 | Appendicitis |
+|3. | Férfi | 8423 | 1971-01-\* | Bronchitis |
+|4. | Férfi | 8423 | 1971-01-\* | Appendicitis |
 |5. | Nő | 1313 | 1981-\*-\* | Appendicitis |
 |6. | Nő | 1313 | 1981-\*-\* | Meningitis |
 5\. táblázat: Kórházi adatok, k = 2
 
-Természetesen, ** ha egy rekord egyedi az adatbázisban, az nem jelenti azt, hogy egyedi a populációban is ** (ld. a budapesti Kovács Ferenc esetét az 1. táblázatban). Más szavakkal egyedi rekordok az adatbázisban nem feltétlen minősülnek személyes adatnak, de nem túl biztatóak ilyen rekordok jelenléte főleg ha a populáción belüli egyediségét nem lehet cáfolni vagy az adatbázis tartalmazza a populáció nagy részét (ami nem ritka manapság). 
+Természetesen, **ha egy rekord egyedi az adatbázisban, az nem jelenti azt, hogy egyedi a populációban is** (ld. a budapesti Kovács Ferenc esetét az 1. táblázatban). Más szavakkal egyedi rekordok az adatbázisban nem feltétlen minősülnek személyes adatnak, de nem túl biztatóak ilyen rekordok jelenléte főleg ha a populáción belüli egyediségét nem lehet cáfolni vagy az adatbázis tartalmazza a populáció nagy részét (ami nem ritka manapság). 
 Ezért a gyakorlatban legtöbbször csak az adatbázison belüli egyediséget használják az adat személyességének mérésére; ha egy adatbázisban vannak olyan rekordok, amelyek egyediek valamely plauzibilis támadó számára (Terike néni aki ismeri a lakhelyet, nevet és születési dátumot), akkor jó eséllyel tartalmaz személyes adatot az adatbázis. 
 <!---
 Egy fontos dolog megjegyzendő: A fenti példákban feltételeztük, hogy ha egy rekord nem egyedi a populációban, de egyedi az adatbázisban akkor személyes. 
