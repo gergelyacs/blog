@@ -62,16 +62,17 @@ tárolják a születési dátumot is, viszont a nevük helyett csak a nemüket (
 |3. | Férfi | 1113 | 1981-01-31 | Gastroenteritis |
 |4. | Férfi | 1114 | 1971-03-01 | Bronchitis |
 | ... | ... | ... | ... | ...|
+
 4\. táblázat: Kórházi adatok átalaktíva
 
 Első ránézésre, egy ilyen adatbázis már nem tartalmaz személyes adatot, hiszen a nevet mint attribútumot eltávolítottuk. Paradox módon,
 egy ilyen adatbázis is tartalmazhat személyes adatot, mivel a születési dátum, nem, és írányítószám együttese azonosíthat valakit (ugyan sok ezer ember született azonos napon mint K. Ferenc vagy lakik azonos irányítószám
 alatt, azon emberek száma akik azonos napon születtek **és** az irányítószámuk is azonos K. Ferenc irányítószámával már jóval kevesebb).
-[Több tanulmányban]( http://www.privacylives.com/wp-content/uploads/2010/01/golle-reidentification-deanonymization-2006.pdf) is megmutatták, hogy egy milliós populációban az egyének majdnem közel 63%-ának egyedi a nemének, irányítószámának, 
+[Több tanulmányban]( http://www.privacylives.com/wp-content/uploads/2010/01/golle-reidentification-deanonymization-2006.pdf) is megmutatták, hogy egy milliós populációban az egyének közel 63%-ának egyedi a nemének, irányítószámának, 
 és születési dátumának az együttese, vagyis jó eséllyel nincs még egy olyan ember Magyarországon, aki azonos nemű és akkor született és ott lakik mint az Olvasó. 
 
 Tegyük fel, hogy Gizi néni (vagy férje) egy állami szervnél dolgozik, ahol hozzáfér az állampolgárok pontos
-születési idejéhez és lakhelyéhez (2. táblázat). A fentiek miatt egy olyan kórházi adatbázisban mint a 4. táblázat akár a betegek 63%-ához hozzárendelheti a pontos identitásukat, hiszen minden kórházi rekordhoz hozzá tudja rendelni a neki megfelelő állampolgári adatokat *ha az irányítószám, születési dátum és nem mint attribútumok implicit vagy explicit módon megjelennek mindkét adatbázisban*. 
+születési idejéhez és lakhelyéhez (3. táblázat). A fentiek miatt egy olyan kórházi adatbázisban mint a 4. táblázat akár a betegek 63%-ához hozzárendelheti a pontos identitásukat, hiszen minden kórházi rekordhoz hozzá tudja rendelni a neki megfelelő állampolgári adatokat *ha az irányítószám, születési dátum és nem mint attribútumok implicit vagy explicit módon megjelennek mindkét adatbázisban*. 
 Ebben az esetben a név, irányítószám és nem együttese egyedi azonosítója az emberek 63%-ának *Gizi néni számára*. 
 
 
@@ -131,7 +132,7 @@ Vegyük Terike néni esetét a vidéken élő K. Ferenccel, de most Terike néni
 
 5\. táblázat: Kórházi adatok 
 
-Látható, hogy nagyon **nehéz feltételezéséket szabni egy támadó háttértudására és így meghatározni a plauzbilitását**. Napjainkban egyre több adatot osztanak meg magukról emberek akarva vagy akaratlan, így nem lehet tudni, hogy ki rendelkezik elég tudással ahhoz, megtalálja az illető rekordját egy adatbázisban. 
+Látható, hogy nagyon **nehéz feltételezéséket szabni egy támadó háttértudására és így meghatározni a plauzbilitását**. Napjainkban egyre több adatot osztanak meg magukról vagy egymásról az emberek akarva vagy akaratlan, így nem lehet tudni, hogy ki rendelkezik elég tudással ahhoz, megtalálja az illető rekordját egy adatbázisban. 
 
 
 ### Adatok egyedisége az adatbázisban és a populációban
