@@ -144,7 +144,7 @@ Egy rekord egyedi, ha attribútumok egy részhalmazának-értékei (amit egy pla
 az adatbázisban, vagyis nincs más rekord aminek ilyen attribútum-értékei lennének. 
 A fenti példában, ha K. Ferenc egyedi a nemét, irányítószámát, és születési
 dátumát nézve a 2. táblázatban, akkor Terike néni könnyen lokalizálhatja vidéki szomszédjának rekordját. Ha viszont k rekord rendelkezik ilyen
-attribútum értékekkel, akkor Terike néni nem tudja meghatározni, hogy melyik rekord tartozik a szomszédjához, *feltéve, hogy nincs más információja szomszédja betegségének tüneteiről* (pontosabban ha tippel, akkor az esélye, hogy eltalálja a szomszédja rekordját 1/k). Ezt illusztrálja az 5. táblázat, ahol k = 2. 
+attribútum értékekkel, akkor Terike néni nem tudja meghatározni, hogy melyik rekord tartozik a szomszédjához, *feltéve, hogy nincs más információja szomszédja betegségének tüneteiről* (pontosabban ha tippel, akkor az esélye, hogy eltalálja a szomszédja rekordját 1/k). Ezt illusztrálja az 6. táblázat, ahol k = 2. 
 
 | Rekord | Nem | Irányítószám | Születési dátum  | Betegség |
 |--- | ---|---|---| --- |
@@ -154,7 +154,8 @@ attribútum értékekkel, akkor Terike néni nem tudja meghatározni, hogy melyi
 |4. | Férfi | 8423 | 1971-01-\* | Appendicitis |
 |5. | Nő | 1313 | 1981-\*-\* | Appendicitis |
 |6. | Nő | 1313 | 1981-\*-\* | Meningitis |
-5\. táblázat: Kórházi adatok, k = 2
+
+6\. táblázat: Kórházi adatok, k = 2
 
 Természetesen, **ha egy rekord egyedi az adatbázisban, az nem jelenti azt, hogy egyedi a populációban is** (ld. a budapesti Kovács Ferenc esetét az 1. táblázatban). Más szavakkal egyedi rekordok az adatbázisban nem feltétlen minősülnek személyes adatnak, de nem túl biztatóak ilyen rekordok jelenléte főleg ha a populáción belüli egyediségét nem lehet cáfolni vagy az adatbázis tartalmazza a populáció nagy részét (ami nem ritka manapság). 
 Ezért a gyakorlatban legtöbbször csak az adatbázison belüli egyediséget használják az adat személyességének mérésére; ha egy adatbázisban vannak olyan rekordok, amelyek egyediek valamely plauzibilis támadó számára (Terike néni aki ismeri a lakhelyet, nevet és születési dátumot), akkor jó eséllyel tartalmaz személyes adatot az adatbázis. 
@@ -172,7 +173,7 @@ Például tartalmazhatja egy személy által meglátogatott helyeket, megvásár
 filmeket, stb. Az összes attribútumok száma ilyenkor megegyezik az összes lehetséges hellyel,
 megvásárolható termékkel, vagy létező filmmel, melyek száma akár több ezer is lehet, értékük pedig
 1 ha a kérdéses személy meglátogatta/megvásárolta/megtekintette az adott
-helyet/árut/filmet, máskülönben 0. Egy ilyen adatbázist illusztrál a 6. táblázat, ahol az attribútumok Budapest főbb helyeinek ([POI](https://hu.wikipedia.org/wiki/POI)) felel meg.
+helyet/árut/filmet, máskülönben 0. Egy ilyen adatbázist illusztrál a 7. táblázat, ahol az attribútumok Budapest főbb helyeinek ([POI](https://hu.wikipedia.org/wiki/POI)) felel meg.
 
 | Rekord | Móricz Zsigmond körtér | Allee | Mom park | ... | Moszkva tér|
 |--- | ---|---|---| --- | --- |
@@ -182,7 +183,7 @@ helyet/árut/filmet, máskülönben 0. Egy ilyen adatbázist illusztrál a 6. t�
 |4. | 0| 0 | 1 | ... | 1 |
 | ... | ... | ... | ... | ...| ... |
 
-6\. táblázat: Komplex adatbázis
+7\. táblázat: Komplex adatbázis
 
 
 
@@ -196,7 +197,7 @@ Az ilyen adathalmazok szinte [mindig]( https://www.cs.utexas.edu/~shmat/shmat_oa
 Példaként nézzünk egy komplexebb adathalmazt, ami tartalmazza egy 1.5 millió lakosú város közlekedési metró- es busz hálózatának használatát. Adott két adatbázis, amelynek minden egyes sora megfelel egy elektronikus jegynek, és tartalmazza azon állomások listáját, ahol a jegyet érvényesítették/leolvasták. A továbbiakban tegyük fel, hogy egy utas csakis egy jegyet használt a megfigyelt időtartamban (3 nap), vagyis minden sor megfelel egy utas által meglátogatott állomások egy részhalmazának (tehát egy állomás csak egyszer szerepelhet egy rekordban). 
 A metró adatbázisban összesen 68 állomás (attribútum) 
 és 847 668 utas (rekord) található. A busz adatbázisban 893 állomás (attribútum) és 773 295 utas (rekord).
-Az adatbázisok főbb jellemzőit a 6. táblázat mutatja.
+Az adatbázisok főbb jellemzőit a 8. táblázat mutatja.
 
 
 | | Metró | Busz|
@@ -207,7 +208,7 @@ Az adatbázisok főbb jellemzőit a 6. táblázat mutatja.
 | Átlagos állomások száma utasonként| 1.97 |2.75 |
 | Állomások számának szórása utasonként|  1.64 |  2.53 |
 
-6\. táblázat: Metró- és buszállomások látogatottsága
+8\. táblázat: Metró- és buszállomások látogatottsága
 
 
 Két főbb támadást képzelhetünk el:
@@ -258,7 +259,7 @@ Az egyediség egy másik és gyorsabban számolható (de kevésbbé pontos) indi
 (**sparseness**) és az állomások gyakoriságának [**heavy tailed**](https://en.wikipedia.org/wiki/Heavy-tailed_distribution) eloszlása. 
 
 Egy adathalmaz ritka, ha minden utas csak néhány állomást látogatott meg. Ez a mi esetünkben valóban igaz, hiszen az
-átlagos állomás-szám rekordonként kevesebb mint 3 mindkét adathalmazra, aminek a szórása szintén kisebb mint 3. 
+átlagos állomás-szám rekordonként kevesebb mint 3 mindkét adathalmazra, aminek a szórása szintén kisebb mint 3 (8. táblázat). 
 
 A heavy-tailed tulajdonság nagyjából azt jelenti, hogy a legtöbb állomás gyakorisága alacsony az adathalmazban. Precízebben fogalmazva, ha ábrázoljuk az állomások elfordulási számának (gyakoriságának) eloszlását az adatbázisban, akkor ezen eloszlás sűrűségfüggvényének a farka "vastagabb", mint egy [exponenciális eloszlás](https://en.wikipedia.org/wiki/Exponential_distribution) sűrűségfüggvényének farka. Ilyen ismertebb eloszlások pl. a [power law](https://en.wikipedia.org/wiki/Power_law) és a [log-normál]( https://en.wikipedia.org/wiki/Log-normal_distribution).
 A következő ábrák illusztrálják a metró es busz adathalmazok heavy-tailed tulajdonságát. Ábrázoltuk az
