@@ -4,7 +4,7 @@ Az [általános európai adatvédelmi törvény](http://eur-lex.europa.eu/legal-
 Például ha egy kórházi adatbázisban szerepel a betegek neve, lakóhelyük irányítószáma, 
 valamint a betegség diagnózisa (1. táblázat), akkor ez személyes adat ha “valaki” (egy támadó, aki az adatbázist látja) képes meghatározni, hogy egy rekord (sor) melyik személyhez tartozik.
 Első pillantásra az 1. táblázat személyes adatnak tűnik a megjelenő nevek mint azonosítók miatt. A valódi válasz egy kicsit árnyaltabb,
-mivel előfordulhat, hogy minden névhez több olyan természetes személy tartozik a populációban (pl. Magyaroszágon), akik ugyanabban a kerületben laknak és az adatbázisban nem szerepelnek. 
+mivel előfordulhat, hogy minden névhez több olyan természetes személy tartozik a populációban (pl. Magyarország), akik ugyanabban a kerületben laknak és az adatbázisban nem szerepelnek. 
 
 
 | Rekord | Név | Irányítószám | Betegség |
