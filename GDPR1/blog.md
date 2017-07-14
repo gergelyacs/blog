@@ -14,6 +14,7 @@ mivel előfordulhat, hogy minden névhez több olyan természetes személy tarto
 |3. | Nagy Tibor | 1113 | Gastroenteritis |
 |4. | Kovács Ferenc | 1114 | Alzheimer |
 | .. | ... | ... | ...|
+
 1\. táblázat: Kórházi adatok
 
 Tegyük fel, hogy Terike néni szomszédja Kovács Ferenc aki Budapesten lakik.
@@ -28,6 +29,7 @@ kikövetkeztetheti, hogy a 4. rekord a szomszédjához tartozik. A név és irá
 |3. | Nagy Tibor | 1113 | Gastroenteritis |
 |4. | Kovács Ferenc | 8423 | Alzheimer |
 | .. | ... | ... | ...|
+
 2\. táblázat: Kórházi adatok vidéki betegekkel
 
 
@@ -45,6 +47,7 @@ Most tegyük fel, hogy Zsuzsa néni nővér aki nem ismeri K. Ferencet és hozz�
 |5. | Nagy Rajmund | 8462051823| 1434 | 1954-11-30 |
 |6. | Papp Lajos | 7351233971| 5423 | 1988-05-24 |
 | ... | ... | ... | ... | ... |
+
 3\. táblázat: Demográfiai adatok
 
 
@@ -125,6 +128,7 @@ Vegyük Terike néni esetét a vidéken élő K. Ferenccel, de most Terike néni
 |4. | Kovács Ferenc | 8423 | 1971-01-\* | Bronchitis |
 |5. | Nagy Tibor | 1313 | 1981-\*-\* | Appendicitis |
 |6. | Nagy Tibor | 1313 | 1981-\*-\* | Meningitis |
+
 5\. táblázat: Kórházi adatok 
 
 Látható, hogy nagyon **nehéz feltételezéséket szabni egy támadó háttértudására és így meghatározni a plauzbilitását**. Napjainkban egyre több adatot osztanak meg magukról emberek akarva vagy akaratlan, így nem lehet tudni, hogy ki rendelkezik elég tudással ahhoz, megtalálja az illető rekordját egy adatbázisban. 
@@ -177,6 +181,7 @@ helyet/árut/filmet, máskülönben 0. Egy ilyen adatbázist illusztrál a 6. t�
 |3. | 0| 0 | 0 | ... | 1 |
 |4. | 0| 0 | 1 | ... | 1 |
 | ... | ... | ... | ... | ...| ... |
+
 6\. táblázat: Komplex adatbázis
 
 
