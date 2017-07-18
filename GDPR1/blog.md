@@ -275,19 +275,19 @@ Első lépésként véletlenszerűen kiválasztunk egy rekordot (minden rekordot
 véletlenszerűen (minden K állomást a rekordból ugyanolyan valószínűséggel, ahol K nyilván nem nagyobb mint a rekordban szereplő meglátogatott állomások száma). Végül megnézzük, hogy hány másik utas rekordja tartalmazza ezt a K állomást. A
 kísérlet sikeres, ha nincs más utas akinek rekordjában szerepel ez a K állomás (vagyis az első
 lépésben kiválasztott rekord egyedi a második lépésben kiválasztott állomásait tekintve).
-Ezt a kísérletet megismételjük elég sokszor (pl. [30000 ismétlés már elég pontos becslést ad](https://arxiv.org/pdf/1507.07851.pdf)), és kiszámoljuk a sikeres kísérletek százalékos arányát, amelyet az alábbi táblázat mutat. 
+Ezt a kísérletet megismételjük elég sokszor (pl. [30000 ismétlés már elég pontos becslést ad](https://arxiv.org/pdf/1507.07851.pdf)), és kiszámoljuk a sikeres kísérletek százalékos arányát, amelyet az alábbi táblázat mutat.
 
 |K | Metró | Busz |
 |---|---|---|
-|2 | 0% (0 rekord)|0.29% (2242 rekord) |
-|3 | 0.01% (84 rekord)|2.45% (18 945 rekord) |
-|4 | 0.63% (5 340 rekord)|5.75% (44 464 rekord) |
-|5 | 2.73% (23 141 rekord)|9.26% (71 607 rekord) |
-|6 | 3.94% (33 398 rekord)|10.91% (84 366 rekord) |
-|7 | 4.92% (41 705 rekord)|13.07% (101 069 rekord) |
+|2 | 0% |0.29%  |
+|3 | 0.01% |2.45%  |
+|4 | 0.63% |5.75%  |
+|5 | 2.73% |9.26%  |
+|6 | 3.94% |10.91%  |
+|7 | 4.92% |13.07%  |
 
 
-Látható, hogy a busz adatbázis jóval több egyedi rekordot (és így potenciálisan több személyes adatot) tartalmaz mint a metró adatbázis, aminek egyik fő oka, hogy jóval több buszállomás létezik (893) mint metróállomás (68).
+Látható, hogy a busz adatbázis jóval több egyedi rekordot (és így potenciálisan több személyes adatot) tartalmaz mint a metró adatbázis, aminek egyik fő oka, hogy jóval több buszállomás létezik (893) mint metróállomás (68), és az utasok 
 
 ### Egyediség egyéb indikátorai
 
