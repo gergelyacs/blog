@@ -136,7 +136,7 @@ Vegyük Terike néni esetét a vidéken élő K. Ferenccel, de most Terike néni
 
 5\. táblázat: Kórházi adatok
 
-Látható, hogy nagyon **nehéz feltételezéséket tenni egy támadó háttértudására és így meghatározni a plauzabilitását**. Napjainkban egyre több adatot osztanak meg az emberek magukról és egymásról, akarva vagy akaratlan; így nem lehet tudni, hogy ki rendelkezik elég tudással ahhoz, hogy megtalálja az illető rekordját egy adatbázisban.
+Látható, hogy nagyon **nehéz feltételezéséket tenni egy támadó háttértudására és így meghatározni a plauzibilitását**. Napjainkban egyre több adatot osztanak meg az emberek magukról és egymásról, akarva vagy akaratlan; így nem lehet tudni, hogy ki rendelkezik elég tudással ahhoz, hogy megtalálja az illető rekordját egy adatbázisban.
 
 
 ### Adatok egyedisége az adatbázisban és a populációban
@@ -250,10 +250,10 @@ Először minden utas TOP K állomását meghatározzuk, majd megnézzük, hogy 
 
 |Top-K | Metró | Busz |
 |---|---|---|
-|Top-2 | 0.03% (84 rekord) |5.56% (25 673 rekord)|
-|Top-3 | 21.4% (43 315 rekord) |41.4% (119 783 rekord)|
-|Top-4 | 82.1% (120 368 rekord)|79.4% (192 163 rekord)|
-|Top-5 | 97.4% (129 608 rekord)|96.3% (216 135 rekord)|
+|Top-2 | 0.03% (84 egyedi rekord) |5.56% (25 673 egyedi rekord)|
+|Top-3 | 21.4% (43 315 egyedi  rekord) |41.4% (119 783 egyedi rekord)|
+|Top-4 | 82.1% (120 368 egyedi rekord)|79.4% (192 163 egyedi rekord)|
+|Top-5 | 97.4% (129 608 egyedi rekord)|96.3% (216 135 egyedi rekord)|
 
 
 <!---
@@ -274,9 +274,9 @@ Először minden utas TOP K állomását meghatározzuk, majd megnézzük, hogy 
 |Top-5 | 97.4% |96.3% |
 -->
 
-Például ha egy utas rekordja legalább 3 metróállomást tartalmaz ,
-akkor ez a rekord 21%-os eséllyel egyedi az adatbázisban.
-Ugyanez az érték már 41% a busz-adatbázisban. Ha az összes rekordot nézzük és a támadó *legfeljebb* a TOP 3 állomást képes azonosítani minden rekordból, akkor számára 43 315 rekord lesz egyedi a metró-adatbázisban, ami az összes rekord kb. 5%-a. 
+Például ha egy utas rekordja legalább 3 metróállomást tartalmaz,
+akkor ez a rekord 21.4%-os eséllyel egyedi az adatbázisban.
+Ugyanez az érték már 41.4% a busz-adatbázisban. Ha az összes rekordot nézzük és a támadó *legfeljebb* a TOP 3 állomást képes azonosítani minden rekordból, akkor számára 43 315 rekord lesz egyedi a metró-adatbázisban, ami az összes rekord kb. 5%-a. 
  A gyakorlatban a TOP-3 állomás könnyen meghatározható egy személyről, de sokan jóval több információt megosztanak magukról közösségi portálokon (pl. képek formájában), ezért náluk akár K > 5 támadó is lehet plauzibilis több mint 95%-os sikervalószínűséggel, feltéve ha az adatbázis elég nagy és nagyjából lefedi az egész populációt.
 
 ### Tetszőleges K állomás egyedisége
@@ -292,12 +292,12 @@ Ezt a kísérletet megismételjük elég sokszor (pl. [30000 ismétlés már el�
 
 |K | Metró | Busz |
 |---|---|---|
-|2 | 12.7% (847 668 rekord) |23.8% (773 295 rekord)|
-|3 | 20.2% (327 873 rekord) |35.7% (425 602 rekord)|
-|4 | 32.4% (205 111 rekord) |48.6% (273 759 rekord)|
-|5 | 52.7% (125 995 rekord) |52.7% (198 875 rekord)|
-|6 | 74.1% (74 402 rekord) |62.2% (142 150 rekord)|
-|7 | 87.7% (42 014 rekord) |83.8% (100 779 rekord)|
+|2 | 12.7% (327 873 rekordra) |23.8% (425 602 rekordra)|
+|3 | 20.2% (205 111 rekordra) |35.7% (273 759 rekordra)|
+|4 | 32.4% (125 995 rekordra) |48.6% (198 875 rekordra)|
+|5 | 52.7% (74 402 rekordra) |52.7% (142 150 rekordra)|
+|6 | 74.1% (42 014 rekordra) |62.2% (100 779 rekordra)|
+|7 | 87.7% (22 787 rekordra) |83.8% (70 370 rekordra)|
 
 <!--
 |K | Metró | Busz |
@@ -310,7 +310,7 @@ Ezt a kísérletet megismételjük elég sokszor (pl. [30000 ismétlés már el�
 |7 | 4.92% |13.07%  |
 -->
 
-Például ha egy utas rekordja legalább 3 metróállomást tartalmaz (ez 205 111 rekordra igaz, ami az összes rekord 24.2%-a), akkor ez a rekord 20%-os eséllyel lesz egyedi a metró adatbázisban.  
+Például ha egy utas rekordja legalább 3 metróállomást tartalmaz (ez 205 111 rekordra igaz, ami az összes rekord 24.2%-a), akkor ez a rekord 20.2%-os eséllyel lesz egyedi a metró adatbázisban.  
 
 Látható, hogy a busz adatbázis jóval több egyedi rekordot (és így potenciálisan több személyes adatot) tartalmaz mint a metró adatbázis. Ennek egyik fő oka, hogy több buszállomás létezik (893) mint metróállomás (68), és nyilván egy utas nagyobb lesz eséllyel lesz egyedi ha több különböző állomást látogathat meg.
 A következőkben megmutatjuk, hogy az utasok valóban ilyen viselkedést mutatnak.
