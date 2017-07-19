@@ -199,7 +199,11 @@ Például tegyük fel, hogy bárki megismerhet K darab, egy bizonyos személy á
 ## Esettanulmány: Tömegközlekedési adatok
 
 
-Példaként nézzünk egy komplexebb adathalmazt, ami egy 1.5 millió lakosú város közlekedési (metró- és busz-) hálózatának használatát tartalmazza. Adott két adatbázis, amelynek minden egyes sora megfelel egy elektronikus jegynek/bérletnek, és tartalmazza azon állomások listáját, ahol a jegyet érvényesítették/leolvasták (az elektronikus jegyek többnyire időalapúak, egyetlen jegy az érvényességi idején belül több állomáson is leolvasásra kerülhet, beleértve metró esetén az utas utolsó állomását ahol elhagyja a metrót). A továbbiakban tegyük fel, hogy egy utas csakis egy jegyet használt a megfigyelt időtartamban (3 nap), vagyis minden sor megfelel egy utas által meglátogatott állomások egy részhalmazának (tehát egy állomás csak egyszer szerepelhet egy rekordban).
+Példaként nézzünk egy komplexebb adathalmazt, ami egy 1.5 millió lakosú város közlekedési (metró- és busz-) hálózatának használatát tartalmazza. Adott két adatbázis, amelynek minden egyes sora megfelel egy elektronikus jegynek/bérletnek (smart kártya), és tartalmazza azon állomások listáját, ahol a jegyet/bérletet érvényesítették/leolvasták (az elektronikus jegyek többnyire időalapúak, egyetlen jegy az érvényességi idején belül több állomáson is leolvasásra kerülhet). 
+A továbbiakban tegyük fel, hogy egy utas csakis egy jegyet/bérletet használt a megfigyelt időtartamban (1 hét), vagyis minden sor megfelel egy utas által meglátogatott állomások egy részhalmazának (tehát egy állomás csak egyszer szerepelhet egy rekordban).
+<!---
+
+-->
 <!---
  Kene ide egy egy pelda rekord/nehany rekord egy tablazatban
  -->
@@ -282,7 +286,7 @@ Ugyanez az érték már 41.4% a busz-adatbázisban. Ha az összes rekordot nézz
 ### Tetszőleges K állomás egyedisége
 Ha egy utas rekordja *legalább* K állomást tartalmaz, akkor milyen valószínűséggel lesz a rekordja egyedi az adatbázisban egy olyan támadó számára, aki ismerheti az utas bármely K állomását?
 
-A fenti valószínűség számításához szükséges a rekordokban előforduló összes K állomás egyediségének vizsgálatára (vagyis hány más rekordban fordulnak elő), ami túl sokáig tartana. Ezért inkább véletlen mintavételezéssel becsüljük ezt a valószínűséget és így a rekordok egyediségét az adatbázisban. A [részleteket](https://arxiv.org/pdf/1507.07851.pdf) mellőzve, erre itt egy egyszerű módszert mutatunk. 
+A fenti valószínűség számításához szükséges a rekordokban előforduló összes K állomás egyediségének vizsgálatára (vagyis hány más rekordban fordulnak elő), ami túl sokáig tartana. Ezért inkább véletlen mintavételezéssel becsüljük K állomás egyediségét. A [részleteket](https://arxiv.org/pdf/1507.07851.pdf) mellőzve, erre itt egy egyszerű módszert mutatunk. 
 
 Első lépésként véletlenszerűen kiválasztunk egy rekordot (minden olyan rekordot ugyanolyan eséllyel, ami legalább K állomást tartalmaz), majd annak K tetszőleges állomását szintén
 véletlenszerűen (minden K állomást a rekordból ugyanolyan eséllyel). Végül megnézzük, hogy hány másik utas rekordja tartalmazza ezt a K állomást. A
