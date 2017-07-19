@@ -274,13 +274,13 @@ Először minden utas TOP K állomását meghatározzuk, majd megnézzük, hogy 
 
 Például ha egy utas legalább 3 metróállomást meglátogat,
 akkor legalább 21%-os eséllyel egyedi a rekordja az adatbázisban.
-Ugyanez az érték már 41% a buszadatbázisban. Ha az összes rekordot nézzük és a támadó *legfeljebb* a TOP 3 állomást képes megismerni minden rekordból, akkor számára 43 315 rekord lesz egyedi a metró-adatbázisban, ami az összes rekord kb. 5%-a. 
+Ugyanez az érték már 41% a busz-adatbázisban. Ha az összes rekordot nézzük és a támadó *legfeljebb* a TOP 3 állomást képes megismerni minden rekordból, akkor számára 43 315 rekord lesz egyedi a metró-adatbázisban, ami az összes rekord kb. 5%-a. 
  A gyakorlatban a TOP-3 állomás könnyen meghatározható egy személyről, de sokan jóval több információt megosztanak magukról közösségi portálokon (pl. képek formájában), ezért náluk akár K > 5 támadó is lehet plauzibilis több mint 95%-os sikervalószínűséggel, feltéve ha az adatbázis elég nagy és nagyjából lefedi az egész populációt.
 
 ### Tetszőleges K állomás egyedisége
 Ha egy utas meglátogat *legalább* K állomást, akkor ez az utas milyen valószínűséggel lesz egyedi az adatbázisokban egy olyan támadó számára, aki ismerheti az utas bármely K meglátogatott állomását?
 
-A fenti valószínűség számításához szükséges a rekordokban előforduló összes K állomás egyediségének vizsgálatára (vagyis hány rekordban fordulnak elő), ami túl sokáig tartana. Ezért inkább véletlen mintavételezéssel becsüljük ezt a valószínűséget és így a rekordok egyediséget az adatbázisban. A [részleteket](https://arxiv.org/pdf/1507.07851.pdf) mellőzve, erre itt egy egyszerű módszert mutatunk. 
+A fenti valószínűség számításához szükséges a rekordokban előforduló összes K állomás egyediségének vizsgálatára (vagyis hány rekordban fordulnak elő), ami túl sokáig tartana. Ezért inkább véletlen mintavételezéssel becsüljük ezt a valószínűséget és így a rekordok egyediségét az adatbázisban. A [részleteket](https://arxiv.org/pdf/1507.07851.pdf) mellőzve, erre itt egy egyszerű módszert mutatunk. 
 
 Első lépésként véletlenszerűen kiválasztunk egy rekordot (minden rekordot, ami legalább K meglátogatott állomást tartalmaz, ugyanolyan eséllyel), majd annak K tetszőleges állomását szintén
 véletlenszerűen (minden K állomást a rekordból ugyanolyan valószínűséggel). Végül megnézzük, hogy hány másik utas rekordja tartalmazza ezt a K állomást. A
@@ -308,7 +308,8 @@ Ezt a kísérletet megismételjük elég sokszor (pl. [30000 ismétlés már el�
 |7 | 4.92% |13.07%  |
 -->
 
-Látható, hogy a busz adatbázis jóval több egyedi rekordot (és így potenciálisan több személyes adatot) tartalmaz mint a metró adatbázis, aminek egyik fő oka, hogy jóval több buszállomás létezik (893) mint metróállomás (68), és az utasok 
+Látható, hogy a busz adatbázis jóval több egyedi rekordot (és így potenciálisan több személyes adatot) tartalmaz mint a metró adatbázis. Ennek egyik fő oka, hogy több buszállomás létezik (893) mint metróállomás (68), és nyilván egy utas nagyobb lesz eséllyel lesz egyedi ha több különböző állomást látogathat meg.
+A következőkben megmutatjuk, hogy az utasok valóban ilyen viselkedést mutatnak.
 
 ### Egyediség egyéb indikátorai
 
@@ -319,7 +320,7 @@ Egy adathalmaz ritka, ha minden utas csak néhány állomást látogatott meg. E
 átlagos állomás-szám rekordonként kevesebb mint 3 mindkét adathalmazra, aminek a [szórása](https://en.wikipedia.org/wiki/Standard_deviation) szintén kisebb mint 3 (8. táblázat).
 
 A heavy-tailed tulajdonság nagyjából azt jelenti, hogy a legtöbb állomás gyakorisága alacsony az adathalmazban. Precízebben fogalmazva, ha ábrázoljuk az állomások elfordulási számának (gyakoriságának) eloszlását az adatbázisban, akkor ezen eloszlás sűrűségfüggvényének a farka „vastagabb", mint egy [exponenciális eloszlás](https://en.wikipedia.org/wiki/Exponential_distribution) sűrűségfüggvényének farka. Ilyen ismertebb eloszlások pl. a [power law](https://en.wikipedia.org/wiki/Power_law) és a [log-normál]( https://en.wikipedia.org/wiki/Log-normal_distribution).
-A következő ábrák illusztrálják a metró es busz adathalmazok heavy-tailed tulajdonságát. Ábrázoltuk az
+A következő ábrák illusztrálják a metró és busz adathalmazok heavy-tailed tulajdonságát. Ábrázoltuk az
 állomások gyakoriságának a komplemens kumulatív eloszlásfüggvényét ([CCDF](https://en.wikipedia.org/wiki/Cumulative_distribution_function)), valamint az erre legjobban illeszkedő exponenciális és heavy-tailed modellt. Ezen ábrák mutatják, hogy az exponenciális modell lényegesen rosszabbul illeszkedik mint a legjobb heavy-tailed modellek, amelyek a mi esetünkben a
 pozitív log-normál és [Weibull](https://en.wikipedia.org/wiki/Weibull_distribution) eloszlások voltak. Azaz, a **rekordok többsége nagy valószínűséggel egyedi!** Az illeszkedést a [powerlaw]( https://pypi.python.org/pypi/powerlaw) python csomaggal számoltuk. Érdemes megjegyezni, hogy a vizsgált heavy-tailed eloszlásoknak több paraméterük van mint az exponenciális eloszlásnak, ezért [overfitting]( https://en.wikipedia.org/wiki/Overfitting) miatt a heavy-tailed eloszlások lehet, hogy csak az adatbázist modellezik pontosabban de nem a populációt (habár ennek esélye kicsi, mivel az adatbázisok jelen esetben elég nagyok).
 
