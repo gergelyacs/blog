@@ -216,11 +216,11 @@ Az adatbázisok főbb jellemzőit a 8. táblázat mutatja.
 
 8\. táblázat: Metró- és buszállomások látogatottsága
 
-<!--
+<!---
 A 9. táblázatban feltüntettük az utasok által meglátogatott állomások számának eloszlását,
-vagyis azon utasok %-os arányát, akik legalább N állomást látogattak meg.  
+vagyis azon rekordok %-os arányát, amelyek legalább N meglátogatott állomást tartalmaznak.  
 
-|Állomások száma (N) | Metró | Busz |
+|N | Metró | Busz |
 |--:|---|---|
 |1| 100.00% |100.00% |
 |2| 38.68% |55.04% |
@@ -231,7 +231,7 @@ vagyis azon utasok %-os arányát, akik legalább N állomást látogattak meg.
 |7| 2.69% |9.10% |
 
 9\. táblázat: Meglátogatott állomások számának eloszlása
--->
+ -->
 
 Két főbb támadást képzelhetünk el:
 1. A támadó ismeri egy tetszőleges utas K tetszőleges állomását, és lokalizálni szeretné az utas rekordját.
@@ -244,15 +244,24 @@ munkahely, konditerem, szórakozóhely). A sikervalószínűség mindkét esetbe
 
 ### TOP K állomások egyedisége
 
-Először minden utas TOP K állomását meghatározzuk, majd megnézzük, hogy hány utasnak egyedi a TOP K állomása az adatbázisban (ha van olyan utas, aki kevesebb mint K állomást látogatott meg összesen, akkor náluk K megegyezik az általuk meglátogatott állomások számával). Az alábbi táblázat mutatja, hogy az adatbázis rekordjainak hány százaléka egyedi a TOP K állomásukat tekintve.
+Először minden utas TOP K állomását meghatározzuk, majd megnézzük, hogy hány utasnak egyedi a TOP K állomása az adatbázisban. Az alábbi táblázat mutatja, hogy az adatbázis rekordjainak hány százaléka egyedi a TOP K állomásukat tekintve azon rekordok közül, amelyek tartalmaznak legalább K meglátogatott állomást. Zárójelben feltüntettük, hogy egy ilyen támadó számára hány rekord egyedi az adatbázisban.
 
+|Top-K | Metró | Busz |
+|---|---|---|
+|Top-2 | 0.03% (84 rekord) |5.56% (25 673 rekord)|
+|Top-3 | 21.4% (43 315 rekord) |41.4% (119 783 rekord)|
+|Top-4 | 82.1% (120 368 rekord)|79.4% (192 163 rekord)|
+|Top-5 | 97.4% (129 608 rekord)|96.3% (216 135 rekord)|
+
+
+<!---
 |Top-K | Metró | Busz |
 |---|---|---|
 |Top-2 | 0.01% (84 rekord) | 3.32% (25 673 rekord)|
 |Top-3 | 5.11% (43 315 rekord)| 15.49% (119 783 rekord) |
 |Top-4 | 14.20% (120 368 rekord)  | 24.85% (192 163 rekord) |
 |Top-5 | 15.29% (129 608 rekord) | 27.95% (216 135 rekord)|
-
+-->
 
 <!--
 |Top-K | Metró | Busz |
@@ -263,20 +272,32 @@ Először minden utas TOP K állomását meghatározzuk, majd megnézzük, hogy 
 |Top-5 | 97.4% |96.3% |
 -->
 
-Látható, hogy az utasok 5%-ának egyedi a TOP 3 metróállomása, és 15%-ának pedig a TOP 3 busz állomása.
-Ezek rendre 43 315 utasnak felel meg a metró és 119 783 utasnak a busz adatbázisban.
+Például ha egy utas legalább 3 metróállomást meglátogat,
+akkor legalább 21%-os eséllyel egyedi a rekordja az adatbázisban.
+Ugyanez az érték már 41% a buszadatbázisban. Ha az összes rekordot nézzük és a támadó *legfeljebb* a TOP 3 állomást képes megismerni minden rekordból, akkor számára 43 315 rekord lesz egyedi a metró-adatbázisban, ami az összes rekord kb. 5%-a. 
  A gyakorlatban a TOP-3 állomás könnyen meghatározható egy személyről, de sokan jóval több információt megosztanak magukról közösségi portálokon (pl. képek formájában), ezért náluk akár K > 5 támadó is lehet plauzibilis több mint 95%-os sikervalószínűséggel, feltéve ha az adatbázis elég nagy és nagyjából lefedi az egész populációt.
 
 ### Tetszőleges K állomás egyedisége
+Ha egy utas meglátogat *legalább* K állomást, akkor ez az utas milyen valószínűséggel lesz egyedi az adatbázisokban egy olyan támadó számára, aki ismerheti az utas bármely K meglátogatott állomását?
 
-A rekordokban előforduló összes K állomás vizsgálata túl sokáig tartana, ezért inkább véletlen mintavételezéssel becsüljük az egyediséget. A [részleteket](https://arxiv.org/pdf/1507.07851.pdf) mellőzve, itt egy egyszerű módszert mutatunk.
+A fenti valószínűség számításához szükséges a rekordokban előforduló összes K állomás egyediségének vizsgálatára (vagyis hány rekordban fordulnak elő), ami túl sokáig tartana. Ezért inkább véletlen mintavételezéssel becsüljük ezt a valószínűséget és így a rekordok egyediséget az adatbázisban. A [részleteket](https://arxiv.org/pdf/1507.07851.pdf) mellőzve, erre itt egy egyszerű módszert mutatunk. 
 
-Első lépésként véletlenszerűen kiválasztunk egy rekordot (minden rekordot ugyanolyan eséllyel), majd annak K tetszőleges állomását szintén
-véletlenszerűen (minden K állomást a rekordból ugyanolyan valószínűséggel, ahol K nyilván nem nagyobb mint a rekordban szereplő meglátogatott állomások száma). Végül megnézzük, hogy hány másik utas rekordja tartalmazza ezt a K állomást. A
+Első lépésként véletlenszerűen kiválasztunk egy rekordot (minden rekordot, ami legalább K meglátogatott állomást tartalmaz, ugyanolyan eséllyel), majd annak K tetszőleges állomását szintén
+véletlenszerűen (minden K állomást a rekordból ugyanolyan valószínűséggel). Végül megnézzük, hogy hány másik utas rekordja tartalmazza ezt a K állomást. A
 kísérlet sikeres, ha nincs más utas akinek rekordjában szerepel ez a K állomás (vagyis az első
 lépésben kiválasztott rekord egyedi a második lépésben kiválasztott állomásait tekintve).
 Ezt a kísérletet megismételjük elég sokszor (pl. [30000 ismétlés már elég pontos becslést ad](https://arxiv.org/pdf/1507.07851.pdf)), és kiszámoljuk a sikeres kísérletek százalékos arányát, amelyet az alábbi táblázat mutat.
 
+|K | Metró | Busz |
+|---|---|---|
+|2 | 12.7% |23.8% |
+|3 | 20.2% |35.7% |
+|4 | 32.4% |48.6% |
+|5 | 52.7% |52.7% |
+|6 | 74.1% |62.2% |
+|7 | 87.7% |83.8% |
+
+<!--
 |K | Metró | Busz |
 |---|---|---|
 |2 | 0% |0.29%  |
@@ -285,7 +306,7 @@ Ezt a kísérletet megismételjük elég sokszor (pl. [30000 ismétlés már el�
 |5 | 2.73% |9.26%  |
 |6 | 3.94% |10.91%  |
 |7 | 4.92% |13.07%  |
-
+-->
 
 Látható, hogy a busz adatbázis jóval több egyedi rekordot (és így potenciálisan több személyes adatot) tartalmaz mint a metró adatbázis, aminek egyik fő oka, hogy jóval több buszállomás létezik (893) mint metróállomás (68), és az utasok 
 
