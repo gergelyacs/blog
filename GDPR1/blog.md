@@ -1,3 +1,5 @@
+Ebben a leírásban először áttekintjük a személyes adat fogalmát példákkal illusztrálva, ahogyan azt a 2018. május 25-én érvénybe lépő [új európai adatvédelmi törvény (GDPR)]((http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&from=HU)) definiálja. A GDPR kötelezettségei bárkire vonatkoznak, aki Európai Uniós polgár személyes adatát tárolja vagy dolgozza fel (függetlenül annak helyétől), és ezek mulasztása [jelentős anyagi](https://www.privacy-regulation.eu/hu/83.htm) és jogi következményekkel járhat. Viszont az adat személyes jellegének megítélése korántsem könnyű, amit a leírás második részében demonstrálunk. Megmutatjuk, hogy egy Budapest nagyságú városban a tömegközlekedést használó emberek által meglátogatott állomások listája egyedi, és kevesebb mint 5 állomás ismerete elég ahhoz, hogy egy ilyen adatbázisban bárki azonosítson egy utast. Más szavakkal kizárólag az állomások listája utasonként (név, cím, stb. nélkül) jó eséllyel személyes adatnak minősül. 
+
 ## Mi a személyes adat?
 
 Az [általános európai adatvédelmi törvény](http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&from=HU) ([General Data Protection Regulation (GDPR)]( http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN)) értelmében személyes adatnak minősül minden olyan információ, ami egy *azonosított* vagy *azonosítható* természetes személyre vonatkozik ([Cikk 4(1)]( https://www.privacy-regulation.eu/hu/4.htm)).
@@ -85,8 +87,8 @@ Ebben az esetben a név, irányítószám és nem együttese egyedi azonosítój
 Jogosan felmerülhet a kérdés: ha Zsuzsa néni jó eséllyel újra tudja azonosítani az 1. táblázat 4. rekordját, de Terike néni nem, akkor az személyes adat-e a GDPR szerint? Hasonlóan ha Gizi néni minden embert 63%-os valószínűséggel azonosít, de egyiket sem teljes bizonyossággal, akkor a 4. táblázat bármely rekordja személyes adatnak minősül vagy sem? Hasonló bizonytalanság fellép Zsuzsa néni esetében, hiszen ritkán, de [fiatal felnőttek is szenvedhetnek Alzheimer kórban]( https://en.wikipedia.org/wiki/Early-onset_Alzheimer%27s_disease). Láthatóan Terike néni hihetőbb támadó mint a többiek, hiszen neki „csak” a kórházi adatokhoz kell hozzáférnie és nincs szüksége a 3. táblázatra, hogy a szomszédja adatát lokalizálja az 1. táblázatban.
 A GDPR nem definiál explicit felső korlátot arra, hogy mennyire kell egy támadónak plauzibilisnek lennie, és arra sem, hogy ilyen támadásoknak milyen minimális sikervalószínűségűeknek kell lenniük ahhoz, hogy egy rekord azonosítható legyen (azaz személyesnek minősüljön). Viszont megköveteli, hogy a sikervalószínűségek ésszerűen alacsony értékek legyenek **minden rekordra** az adatbázisban a lehető legtöbb plauzibilis támadót figyelembe véve ([Recital 26](https://www.privacy-regulation.eu/hu/r26.htm)).
 
-A plauzibilitás és sikervalószínűségek becslésénél figyelembe kell venni a tényt, hogy a potenciális támadók nem feltétlenül ismerik a (kvázi) azonosítók összes elemét (pl. csak az irányítószámot, de a születési dátumot nem), valamint ezek megtanulása túl költséges lehet számukra.
-Például ha a való életben létezik egy Terike néni (vagyis plauzibilis), akkor K. Ferenc rekordja a 2. táblázatban személyes adatnak minősül. Ha Zsuzsa és Gizi néni létezése hihető (vagyis plauzibilis, hogy hozzáférnek a 3. és 4. táblázathoz és ez számukra nem okoz túl nagy költséget), akkor K. Ferenc rekordja az 1. és 4. táblázatban is személyes adatnak minősülhet. Viszont az utóbbi megítélése már nem egyértelmű tekintve a 37%-os hibavalószínűséget Gizi néni esetén, illetve a fiatalkori Alzheimer esélyét Zsuzsa néni esetén.
+A plauzibilitás és sikervalószínűségek becslésénél figyelembe kell venni, hogy a potenciális támadók nem feltétlenül ismerik a (kvázi) azonosítók összes elemét (pl. csak az irányítószámot, de a születési dátumot nem), valamint ezek megtanulása túl költséges lehet számukra.
+Például ha a való életben létezik egy Terike néni (vagyis plauzibilis, hogy hozzáfér a 2. táblázathoz), akkor K. Ferenc rekordja a 2. táblázatban személyes adatnak minősül. Ha Zsuzsa és Gizi néni létezése hihető (vagyis plauzibilis, hogy hozzáférnek a 3. és 4. táblázathoz és ez számukra nem okoz túl nagy költséget), akkor K. Ferenc rekordja az 1. és 4. táblázatban is személyes adatnak minősülhet. Viszont az utóbbi megítélése már nem egyértelmű tekintve a 37%-os hibavalószínűséget Gizi néni esetén, illetve a fiatalkori Alzheimer esélyét Zsuzsa néni esetén.
 
 **Egy adat személyes jellege tehát attól függ, hogy milyen potenciális támadók férhetnek hozzá az adathoz és azok képesek-e meghatározni legalább egy rekord tulajdonosát mint természetes személyt.**
 Ennek megítéléséhez szükséges minden plauzibilis támadás feltérképezése és azok sikervalószínűségeinek becslése.
@@ -244,7 +246,7 @@ munkahely, konditerem, szórakozóhely). A sikervalószínűség mindkét esetbe
 
 ### TOP K állomások egyedisége
 
-Először minden utas TOP K állomását meghatározzuk, majd megnézzük, hogy hány utasnak egyedi a TOP K állomása az adatbázisban. Az alábbi táblázat mutatja, hogy az adatbázis rekordjainak hány százaléka egyedi a TOP K állomásukat tekintve azon rekordok közül, amelyek tartalmaznak legalább K meglátogatott állomást. Zárójelben feltüntettük, hogy egy ilyen támadó számára hány rekord egyedi az adatbázisban.
+Először minden utas TOP K állomását meghatározzuk, majd megnézzük, hogy hány utasnak egyedi a TOP K állomása az adatbázisban. Az alábbi táblázat mutatja, hogy az adatbázis rekordjainak hány százaléka egyedi a TOP K állomásukat tekintve azon rekordok közül, amelyek tartalmaznak legalább K állomást. Zárójelben feltüntettük, hogy egy ilyen támadó számára hány rekord egyedi az adatbázisban.
 
 |Top-K | Metró | Busz |
 |---|---|---|
@@ -272,21 +274,21 @@ Először minden utas TOP K állomását meghatározzuk, majd megnézzük, hogy 
 |Top-5 | 97.4% |96.3% |
 -->
 
-Például ha egy utas legalább 3 metróállomást meglátogat,
-akkor legalább 21%-os eséllyel egyedi a rekordja az adatbázisban.
-Ugyanez az érték már 41% a busz-adatbázisban. Ha az összes rekordot nézzük és a támadó *legfeljebb* a TOP 3 állomást képes megismerni minden rekordból, akkor számára 43 315 rekord lesz egyedi a metró-adatbázisban, ami az összes rekord kb. 5%-a. 
+Például ha egy utas rekordja legalább 3 metróállomást tartalmaz ,
+akkor ez a rekord 21%-os eséllyel egyedi az adatbázisban.
+Ugyanez az érték már 41% a busz-adatbázisban. Ha az összes rekordot nézzük és a támadó *legfeljebb* a TOP 3 állomást képes azonosítani minden rekordból, akkor számára 43 315 rekord lesz egyedi a metró-adatbázisban, ami az összes rekord kb. 5%-a. 
  A gyakorlatban a TOP-3 állomás könnyen meghatározható egy személyről, de sokan jóval több információt megosztanak magukról közösségi portálokon (pl. képek formájában), ezért náluk akár K > 5 támadó is lehet plauzibilis több mint 95%-os sikervalószínűséggel, feltéve ha az adatbázis elég nagy és nagyjából lefedi az egész populációt.
 
 ### Tetszőleges K állomás egyedisége
-Ha egy utas *legalább* K állomást meglátogatott, akkor milyen valószínűséggel lesz a rekordja egyedi az adatbázisban egy olyan támadó számára, aki ismerheti az utas bármely K meglátogatott állomását?
+Ha egy utas rekordja *legalább* K állomást tartalmaz, akkor milyen valószínűséggel lesz a rekordja egyedi az adatbázisban egy olyan támadó számára, aki ismerheti az utas bármely K állomását?
 
-A fenti valószínűség számításához szükséges a rekordokban előforduló összes K állomás egyediségének vizsgálatára (vagyis hány rekordban fordulnak elő), ami túl sokáig tartana. Ezért inkább véletlen mintavételezéssel becsüljük ezt a valószínűséget és így a rekordok egyediségét az adatbázisban. A [részleteket](https://arxiv.org/pdf/1507.07851.pdf) mellőzve, erre itt egy egyszerű módszert mutatunk. 
+A fenti valószínűség számításához szükséges a rekordokban előforduló összes K állomás egyediségének vizsgálatára (vagyis hány más rekordban fordulnak elő), ami túl sokáig tartana. Ezért inkább véletlen mintavételezéssel becsüljük ezt a valószínűséget és így a rekordok egyediségét az adatbázisban. A [részleteket](https://arxiv.org/pdf/1507.07851.pdf) mellőzve, erre itt egy egyszerű módszert mutatunk. 
 
-Első lépésként véletlenszerűen kiválasztunk egy rekordot (minden olyan rekordot ugyanolyan eséllyel, ami legalább K meglátogatott állomást tartalmaz), majd annak K tetszőleges állomását szintén
+Első lépésként véletlenszerűen kiválasztunk egy rekordot (minden olyan rekordot ugyanolyan eséllyel, ami legalább K állomást tartalmaz), majd annak K tetszőleges állomását szintén
 véletlenszerűen (minden K állomást a rekordból ugyanolyan eséllyel). Végül megnézzük, hogy hány másik utas rekordja tartalmazza ezt a K állomást. A
 kísérlet sikeres, ha nincs más utas akinek rekordjában szerepel ez a K állomás (vagyis az első
 lépésben kiválasztott rekord egyedi a második lépésben kiválasztott állomásait tekintve).
-Ezt a kísérletet megismételjük elég sokszor (pl. [30000 ismétlés már elég pontos becslést ad](https://arxiv.org/pdf/1507.07851.pdf)), és kiszámoljuk a sikeres kísérletek százalékos arányát, amelyet az alábbi táblázat mutat. Zárójelben feltüntettük, hogy ez hány rekordot érint, vagyis hány rekord tartalmaz legalább K meglátogatott állomást.
+Ezt a kísérletet megismételjük elég sokszor (pl. [30000 ismétlés már elég pontos becslést ad](https://arxiv.org/pdf/1507.07851.pdf)), és kiszámoljuk a sikeres kísérletek százalékos arányát, amelyet az alábbi táblázat mutat. Zárójelben feltüntettük, hogy ez hány rekordot érint, vagyis hány rekord tartalmaz legalább K állomást.
 
 |K | Metró | Busz |
 |---|---|---|
@@ -308,7 +310,7 @@ Ezt a kísérletet megismételjük elég sokszor (pl. [30000 ismétlés már el�
 |7 | 4.92% |13.07%  |
 -->
 
-Például ha egy utas legalább 3 metróállomást meglátogat (ez 205 111 rekordra igaz, ami az összes rekord 24.2%-a), akkor annak rekordja legalább 20%-os eséllyel lesz egyedi a metró adatbázisban.  
+Például ha egy utas rekordja legalább 3 metróállomást tartalmaz (ez 205 111 rekordra igaz, ami az összes rekord 24.2%-a), akkor ez a rekord 20%-os eséllyel lesz egyedi a metró adatbázisban.  
 
 Látható, hogy a busz adatbázis jóval több egyedi rekordot (és így potenciálisan több személyes adatot) tartalmaz mint a metró adatbázis. Ennek egyik fő oka, hogy több buszállomás létezik (893) mint metróállomás (68), és nyilván egy utas nagyobb lesz eséllyel lesz egyedi ha több különböző állomást látogathat meg.
 A következőkben megmutatjuk, hogy az utasok valóban ilyen viselkedést mutatnak.
