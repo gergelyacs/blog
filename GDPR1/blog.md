@@ -286,16 +286,16 @@ Első lépésként véletlenszerűen kiválasztunk egy rekordot (minden rekordot
 véletlenszerűen (minden K állomást a rekordból ugyanolyan valószínűséggel). Végül megnézzük, hogy hány másik utas rekordja tartalmazza ezt a K állomást. A
 kísérlet sikeres, ha nincs más utas akinek rekordjában szerepel ez a K állomás (vagyis az első
 lépésben kiválasztott rekord egyedi a második lépésben kiválasztott állomásait tekintve).
-Ezt a kísérletet megismételjük elég sokszor (pl. [30000 ismétlés már elég pontos becslést ad](https://arxiv.org/pdf/1507.07851.pdf)), és kiszámoljuk a sikeres kísérletek százalékos arányát, amelyet az alábbi táblázat mutat.
+Ezt a kísérletet megismételjük elég sokszor (pl. [30000 ismétlés már elég pontos becslést ad](https://arxiv.org/pdf/1507.07851.pdf)), és kiszámoljuk a sikeres kísérletek százalékos arányát, amelyet az alábbi táblázat mutat. Zárójelben feltüntettük, hogy ez hány rekordot érint, vagyis hány rekord tartalmaz legalább K meglátogatott állomást.
 
 |K | Metró | Busz |
 |---|---|---|
-|2 | 12.7% |23.8% |
-|3 | 20.2% |35.7% |
-|4 | 32.4% |48.6% |
-|5 | 52.7% |52.7% |
-|6 | 74.1% |62.2% |
-|7 | 87.7% |83.8% |
+|2 | 12.7% (847 668 rekord) |23.8% (773 295 rekord)|
+|3 | 20.2% (327 873 rekord) |35.7% (425 602 rekord)|
+|4 | 32.4% (205 111 rekord) |48.6% (273 759 rekord)|
+|5 | 52.7% (125 995 rekord) |52.7% (198 875 rekord)|
+|6 | 74.1% (74 402 rekord) |62.2% (142 150 rekord)|
+|7 | 87.7% (42 014 rekord) |83.8% (100 779 rekord)|
 
 <!--
 |K | Metró | Busz |
@@ -307,6 +307,8 @@ Ezt a kísérletet megismételjük elég sokszor (pl. [30000 ismétlés már el�
 |6 | 3.94% |10.91%  |
 |7 | 4.92% |13.07%  |
 -->
+
+Például ha egy utas legalább 3 metróállomást meglátogat (ez 205 111 rekordra igaz, ami az összes rekord 24.2%-a), akkor annak rekordja legalább 20%-os eséllyel egyedi a metró adatbázisban.  
 
 Látható, hogy a busz adatbázis jóval több egyedi rekordot (és így potenciálisan több személyes adatot) tartalmaz mint a metró adatbázis. Ennek egyik fő oka, hogy több buszállomás létezik (893) mint metróállomás (68), és nyilván egy utas nagyobb lesz eséllyel lesz egyedi ha több különböző állomást látogathat meg.
 A következőkben megmutatjuk, hogy az utasok valóban ilyen viselkedést mutatnak.
