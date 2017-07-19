@@ -308,7 +308,7 @@ Ezt a kísérletet megismételjük elég sokszor (pl. [30000 ismétlés már el�
 |7 | 4.92% |13.07%  |
 -->
 
-Például ha egy utas legalább 3 metróállomást meglátogat (ez 205 111 rekordra igaz, ami az összes rekord 24.2%-a), akkor annak rekordja legalább 20%-os eséllyel egyedi a metró adatbázisban.  
+Például ha egy utas legalább 3 metróállomást meglátogat (ez 205 111 rekordra igaz, ami az összes rekord 24.2%-a), akkor annak rekordja legalább 20%-os eséllyel lesz egyedi a metró adatbázisban.  
 
 Látható, hogy a busz adatbázis jóval több egyedi rekordot (és így potenciálisan több személyes adatot) tartalmaz mint a metró adatbázis. Ennek egyik fő oka, hogy több buszállomás létezik (893) mint metróállomás (68), és nyilván egy utas nagyobb lesz eséllyel lesz egyedi ha több különböző állomást látogathat meg.
 A következőkben megmutatjuk, hogy az utasok valóban ilyen viselkedést mutatnak.
