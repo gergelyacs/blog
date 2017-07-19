@@ -278,7 +278,7 @@ Ugyanez az érték már 41% a busz-adatbázisban. Ha az összes rekordot nézzü
  A gyakorlatban a TOP-3 állomás könnyen meghatározható egy személyről, de sokan jóval több információt megosztanak magukról közösségi portálokon (pl. képek formájában), ezért náluk akár K > 5 támadó is lehet plauzibilis több mint 95%-os sikervalószínűséggel, feltéve ha az adatbázis elég nagy és nagyjából lefedi az egész populációt.
 
 ### Tetszőleges K állomás egyedisége
-Ha egy utas meglátogat *legalább* K állomást, akkor ez az utas milyen valószínűséggel lesz egyedi az adatbázisokban egy olyan támadó számára, aki ismerheti az utas bármely K meglátogatott állomását?
+Ha egy utas *legalább* K állomást meglátogatott, akkor ez az utas milyen valószínűséggel lesz egyedi az adatbázisokban egy olyan támadó számára, aki ismerheti az utas bármely K meglátogatott állomását?
 
 A fenti valószínűség számításához szükséges a rekordokban előforduló összes K állomás egyediségének vizsgálatára (vagyis hány rekordban fordulnak elő), ami túl sokáig tartana. Ezért inkább véletlen mintavételezéssel becsüljük ezt a valószínűséget és így a rekordok egyediségét az adatbázisban. A [részleteket](https://arxiv.org/pdf/1507.07851.pdf) mellőzve, erre itt egy egyszerű módszert mutatunk. 
 
