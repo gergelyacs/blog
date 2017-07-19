@@ -282,7 +282,7 @@ Ha egy utas *legalább* K állomást meglátogatott, akkor milyen valószínűs�
 
 A fenti valószínűség számításához szükséges a rekordokban előforduló összes K állomás egyediségének vizsgálatára (vagyis hány rekordban fordulnak elő), ami túl sokáig tartana. Ezért inkább véletlen mintavételezéssel becsüljük ezt a valószínűséget és így a rekordok egyediségét az adatbázisban. A [részleteket](https://arxiv.org/pdf/1507.07851.pdf) mellőzve, erre itt egy egyszerű módszert mutatunk. 
 
-Első lépésként véletlenszerűen kiválasztunk egy rekordot (minden rekordot - ami legalább K meglátogatott állomást tartalmaz - ugyanolyan eséllyel), majd annak K tetszőleges állomását szintén
+Első lépésként véletlenszerűen kiválasztunk egy rekordot (minden olyan rekordot ugyanolyan eséllyel, ami legalább K meglátogatott állomást tartalmaz), majd annak K tetszőleges állomását szintén
 véletlenszerűen (minden K állomást a rekordból ugyanolyan eséllyel). Végül megnézzük, hogy hány másik utas rekordja tartalmazza ezt a K állomást. A
 kísérlet sikeres, ha nincs más utas akinek rekordjában szerepel ez a K állomás (vagyis az első
 lépésben kiválasztott rekord egyedi a második lépésben kiválasztott állomásait tekintve).
