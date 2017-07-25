@@ -1,8 +1,8 @@
-Ebben a leírásban először áttekintjük a személyes adat fogalmát példákkal illusztrálva, ahogyan azt a 2018. május 25-én érvénybe lépő [új európai adatvédelmi törvény (GDPR)](http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&from=HU) definiálja. A GDPR kötelezettségei bárkire vonatkoznak, aki európai uniós polgár személyes adatát tárolja vagy dolgozza fel (függetlenül ezek helyétől), és a kötelezettségek mulasztása [jelentős anyagi](https://www.privacy-regulation.eu/hu/83.htm) és jogi következményekkel járhat. Viszont az adat személyes jellegének megítélése korántsem könnyű, amit különböző példákkal is demonstrálunk. Megmutatjuk, hogy egy Budapest nagyságú városban a tömegközlekedést használó emberek által meglátogatott állomások listája egyedi, és kevesebb mint 5 állomás ismerete elég ahhoz, hogy egy ilyen adatbázisban bárki azonosítson egy utast. Más szavakkal kizárólag az állomások listája utasonként (név, cím, stb. nélkül) jó eséllyel személyes adatnak minősül. A probléma aktualitását a közeljövőben Budapesten is bevezetésre kerülő [elektronikus jegyrendszer]( http://rigo.bkk.hu/) adja, ami lehetővé teszi az utasok által meglátogatott állomások rögzítését.
+Először áttekintjük a személyes adat fogalmát példákkal illusztrálva, ahogyan azt a 2018. május 25-én érvénybe lépő [új európai adatvédelmi rendelet (GDPR)](http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&from=HU) definiálja. A GDPR kötelezettségei bárkire vonatkoznak, aki európai uniós polgár személyes adatát tárolja vagy dolgozza fel (függetlenül ezek helyétől), és a kötelezettségek mulasztása [jelentős anyagi](https://www.privacy-regulation.eu/hu/83.htm) és jogi következményekkel járhat. Viszont az adat személyes jellegének megítélése korántsem könnyű, amit különböző példákkal is demonstrálunk. Megmutatjuk, hogy egy Budapest nagyságú városban a tömegközlekedést használó emberek által meglátogatott állomások listája egyedi, és kevesebb mint 5 állomás ismerete elég ahhoz, hogy egy ilyen adatbázisban bárki azonosítson egy utast. Más szavakkal kizárólag az állomások listája utasonként (név, cím, stb. nélkül) jó eséllyel személyes adatnak minősül. A probléma aktualitását a közeljövőben Budapesten is bevezetésre kerülő [elektronikus jegyrendszer]( http://rigo.bkk.hu/) adja, ami lehetővé teszi az utasok által meglátogatott állomások rögzítését.
 
 ## Mi a személyes adat?
 
-Az [általános európai adatvédelmi törvény](http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&from=HU) ([General Data Protection Regulation (GDPR)]( http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN)) értelmében személyes adatnak minősül minden olyan információ, ami egy *azonosított* vagy *azonosítható* természetes személyre vonatkozik ([Cikk 4(1)]( https://www.privacy-regulation.eu/hu/4.htm)).
+Az [általános európai adatvédelmi rendelet](http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&from=HU) ([General Data Protection Regulation (GDPR)]( http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN)) értelmében személyes adatnak minősül minden olyan információ, ami egy *azonosított* vagy *azonosítható* természetes személyre vonatkozik ([Cikk 4(1)]( https://www.privacy-regulation.eu/hu/4.htm)).
 Például ha egy kórházi adatbázisban szerepel a betegek neve, lakóhelyük irányítószáma,
 valamint a betegség diagnózisa (1. táblázat), akkor ez személyes adat ha „valaki” (egy támadó, aki az adatbázishoz hozzáfér) képes meghatározni, hogy egy rekord (sor) melyik személyhez tartozik.
 Első pillantásra az 1. táblázat személyes adatnak tűnik a megjelenő nevek mint azonosítók miatt. A valódi válasz egy kicsit árnyaltabb,
@@ -77,18 +77,13 @@ születési idejéhez és lakhelyéhez (3. táblázat). A fentiek miatt egy olya
 Ebben az esetben a név, irányítószám és nem együttese egyedi azonosítója az emberek 63%-ának *Gizi néni számára*.
 
 
-<!---
-### Egyedi és kvázi azonosítók
-
-Összegezve, az egyedi azonosítók az attribútumok egy olyan részhalmaza, amelyek együttes értékei egyértelműen azonosítanak egy természetes személyt a populációban. Például a név nem egyedi hanem kvázi-azonosító (1. táblázat), de az adóazonosító jel, TAJ szám, bankszámlaszám (2. táblázat) már egyedi azonosítók. Egy személy nemének, lakhelyének, és születési dátumának kombinációja az emberek 63%-ának egyedi, a többinek pedig kvázi azonosítója, mert szükséges még egyéb attribútumok ismerete az egyértelmű azonosításhoz.
--->
-
 ### Plauzibilitás és sikervalószínűségek
-Jogosan felmerülhet a kérdés: ha Zsuzsa néni jó eséllyel újra tudja azonosítani az 1. táblázat 4. rekordját, de Terike néni nem, akkor az személyes adat-e a GDPR szerint? Hasonlóan ha Gizi néni minden embert 63%-os valószínűséggel azonosít, de egyiket sem teljes bizonyossággal, akkor a 4. táblázat bármely rekordja személyes adatnak minősül vagy sem? Hasonló bizonytalanság fellép Zsuzsa néni esetében, hiszen ritkán, de [fiatal felnőttek is szenvedhetnek Alzheimer kórban]( https://en.wikipedia.org/wiki/Early-onset_Alzheimer%27s_disease). Láthatóan Terike néni hihetőbb támadó mint a többiek, hiszen neki „csak” a kórházi adatokhoz kell hozzáférnie és nincs szüksége a 3. táblázatra, hogy a szomszédja adatát lokalizálja az 1. táblázatban.
-A GDPR nem definiál explicit felső korlátot arra, hogy mennyire kell egy támadónak plauzibilisnek lennie, és arra sem, hogy ilyen támadásoknak milyen minimális sikervalószínűségűeknek kell lenniük ahhoz, hogy egy rekord azonosítható legyen (azaz személyesnek minősüljön). Viszont megköveteli, hogy a sikervalószínűségek ésszerűen alacsony értékek legyenek **minden rekordra** az adatbázisban a lehető legtöbb plauzibilis támadót figyelembe véve ([Recital 26](https://www.privacy-regulation.eu/hu/r26.htm)).
+Jogosan felmerülhet a kérdés: ha Zsuzsa néni jó eséllyel újra tudja azonosítani az 1. táblázat 4. rekordját, de Terike néni nem, akkor az személyes adat-e a GDPR szerint? Hasonlóan ha Gizi néni minden embert 63%-os valószínűséggel azonosít, de egyiket sem teljes bizonyossággal, akkor a 4. táblázat bármely rekordja személyes adatnak minősül vagy sem? Hasonló bizonytalanság fellép Zsuzsa néni esetében, hiszen ritkán, de [fiatal felnőttek is szenvedhetnek Alzheimer kórban]( https://en.wikipedia.org/wiki/Early-onset_Alzheimer%27s_disease). Terike néni hihetőbb támadónak mint a többiek, hiszen neki „csak” a kórházi adatokhoz kell hozzáférnie és nincs szüksége a 3. táblázatra, hogy a szomszédja adatát lokalizálja az 1. táblázatban. Ugyanakkor Zsuzsa és Gizi néni K. Ferencen kívül számos más személyt is újraazonosíthat, hiszen hozzáférnek a demográfiai adatokhoz.
+A GDPR nem definiál explicit felső korlátot arra, hogy mennyire kell egy támadónak plauzibilisnek lennie, és arra sem, hogy ilyen támadásoknak milyen minimális sikervalószínűségűeknek kell lenniük ahhoz, hogy egy (vagy több) rekord azonosítható legyen (azaz személyesnek minősüljön). Viszont megköveteli, hogy a sikervalószínűségek ésszerűen alacsony értékek legyenek a lehető legtöbb plauzibilis támadót figyelembe véve ([Recital 26](https://www.privacy-regulation.eu/hu/r26.htm)).
 
 A plauzibilitás és sikervalószínűségek becslésénél figyelembe kell venni, hogy a potenciális támadók nem feltétlenül ismerik a (kvázi) azonosítók összes elemét (pl. csak az irányítószámot, de a születési dátumot nem), valamint ezek megtanulása túl költséges lehet számukra.
 Például ha a való életben létezik egy Terike néni (vagyis plauzibilis, hogy ismeri a szomszédja néhány adatát és hozzáfér a 2. táblázathoz), akkor K. Ferenc rekordja a 2. táblázatban személyes adatnak minősül. Ha Zsuzsa és Gizi néni létezése hihető (vagyis plauzibilis, hogy hozzáférnek a 3. és 4. táblázathoz és ez számukra nem okoz túl nagy költséget), akkor K. Ferenc rekordja az 1. és 4. táblázatban is személyes adatnak minősülhet. Viszont az utóbbi megítélése már nem egyértelmű tekintve a 37%-os hibavalószínűséget Gizi néni esetén, illetve a fiatalkori Alzheimer esélyét Zsuzsa néni esetén.
+
 
 **Egy adat személyes jellege tehát attól függ, hogy milyen potenciális támadók férhetnek hozzá az adathoz és azok képesek-e meghatározni legalább egy rekord tulajdonosát mint természetes személyt.**
 Ennek megítéléséhez szükséges minden plauzibilis támadás feltérképezése és azok sikervalószínűségeinek becslése.
@@ -97,41 +92,28 @@ hiszen részükről kevés technikai felkészültséget igényel az adatlopás (
 van az adatbázisokhoz) függetlenül attól, hogy milyen biztonsági megoldásokkal (tűzfal, jelszó,
 antivírus szoftver, hálózati szegregálás, stb.) védik a kórházi és állami rendszereket külső „hacker” támadásoktól (miközben [ezen védelmek sem nyújtanak garanciát](https://www.theguardian.com/business/2014/oct/02/jp-morgan-76m-households-affected-data-breach) külső támadásokkal szemben).
 
-Megjegyzendő, hogy a fenti **adatok nem azért személyesek, mert érzékeny információt tartalmaznak (pl. betegség), hanem azért, mert egy plauzibilis támadó képes megmondani, hogy melyik rekord melyik természetes személyhez tartozik, függetlenül az adat jellegétől.** Más szavakkal, ha a fenti táblázatok nem tartalmaznák a betegséget mint attribútumot, attól még személyes adatnak minősülhetnek és vonatkozhatnak rá a GDPR kötelezettségei.
+Megjegyzések:
+* A fenti **adatok nem azért személyesek, mert érzékeny információt tartalmaznak (pl. betegség), hanem azért, mert egy plauzibilis támadó képes megmondani, hogy melyik rekord melyik természetes személyhez tartozik, függetlenül az adat jellegétől.** Más szavakkal, ha a fenti táblázatok nem tartalmaznák a betegséget mint attribútumot, attól még személyes adatnak minősülhetnek és vonatkozhatnak rá a GDPR kötelezettségei.
+* A gyakorlatban szükséges az egyes támadások **kockázatának elemzése**, amit a GDPR is megkövetelhet az [Adatvédelmi hatásvizsgálat](https://www.privacy-regulation.eu/hu/35.htm) (Data Protection Impact Assessment) részeként. Egy ilyen elemzés a plauzibilitás és sikervalószínűségek becslésén túl szükségessé teheti a potenciálisan érintett személyek/rekordok számának becslését (scale), illetve a személyeknek okozott potenciális materiális/erkölcsi/fizikai károkat (impact). Például Gizi és Zsuzsa néni kevésbbé plauzibilisek mint Terike néni, de lényegesen több személyt újrazonosíthatnak, és így az általuk okozott potenciális kár is lényegesen nagyobb lehet.
 
-
-
-
-
-<!---
-A fentiek miatt az adat személyes jellegének a megítélése nem kizárólag bizonyos attribútumok ismeretéhez
-kötött (pl. név, telefonszám, TAJ szám stb.), hanem attribútumok "reális" ismeretéhez. Vagyis a megválaszolandó kérdés, hogy létezik-e olyan plauzibilis támadó,
-aki reális eséllyel újra-azonosíthat *legalább egy* személyt egy adatbázisban.
-Ha eltávolítjuk az összes közvetlen azonosítót -- pl. nevet, telefonszámot, TAJ számot, stb., amit
-pseudoanonimizációnak is hívnak -- akkor az adatbázis meg lehet személyes, ha létezik olyan támadó (pl. szomszéd Terike néni aki nővér)
-aki akar egy rekordot (csak K. Ferencet) is újra-azonosít a kórházi adatbázisban.
--->
 ## Személyes adatok mérése
-<!---
- BGergo: ez kicsit benan hangzik, de nincs jobb otletem
- -->
 
 Hogyan állapíthatjuk meg, hogy egy adatbázis személyes adatokat tartalmaz és így a GDPR hatásköre alá esik?
 Néhány esetben ez könnyű, például amikor egy rekord valamely plauzibilis támadó által könnyen megismerhető egyedi azonosítót tartalmaz (pl. TAJ szám vagy bankszámlaszám). Akkor sem túl nehéz, ha létezik olyan publikusan elérhető másik adatbázis (3. táblázat), amely tartalmazza az azonosítók értékeit néhány rekordra; vagyis Zsuzsa és Gizi néni plauzibilis.
 
 Általános esetben viszont meg kell becsülni minden plauzibilis támadó sikervalószínűségét, ami általában lehetetlen
 (ez persze nem ment fel a GDPR kötelezettsége alól, amely [előír](https://www.privacy-regulation.eu/hu/35.htm) egy ilyen
-„best-effort" jellegű elemzést az adat felhasználásától függően). Honnan lehetne tudni, hogy több ezer beteg közül kinek van olyan ismerőse aki hozzáfér a kórházi adatokhoz (pl. egy szomszéd, barát, családtag, munkáltató vagy kolléga, biztosító, bank, stb.), és az mit tud egy betegről vagy betegek demográfiai adatairól, ami a beteg egyedi azonosítója lehet *a populációban*?
+„best-effort" jellegű elemzést az adat felhasználásától függően). Honnan lehetne tudni, hogy a támadók akik hozzáférhetnek a kórházi adatokhoz (pl. alkalmazott, biztosító, bank, stb.) mit tudhatnak egy betegről vagy betegek demográfiai adatairól, ami a beteg egyedi azonosítója lehet *a populációban*?
 
-Vegyük Terike néni esetét a vidéken élő K. Ferenccel, de most Terike néni csak az 5. táblázathoz fér hozzá. Ha Terike néni ismeri K. Ferenc nevét, lakhelyét (8423) és születési évét (1971), akkor még nem tudja eldönteni, hogy a 3. vagy 4. rekord tartozik hozzá ebben a táblázatban. Ha viszont tudja, hogy a szomszédja gyakran köhög (a pontos betegségét viszont nem ismeri), akkor szinte teljesen biztos lehet benne, hogy a 4. rekord tartozik hozzá, mivel a táblázatban más betegségnek nem tünete a köhögés. Vagyis ebben az esetben a 4. rekord bizonyosan személyes adat, amelynek egyedi azonosítója a neve, az irányítószáma, a születési éve, és a betegségének egy tünete (köhögés).
-
+Vegyük Zsuzsa néni esetét K. Ferenccel, de most Zsuzsa néni csak a 3. és 5. táblázatokhoz fér hozzá. Ezután Zsuzsa néni lelkes Facebook/Instagram felhasználó révén rékeres az összes K.Ferenc nevű felhasználóra, és talál egy K. Ferencet aki a megosztott képei alapján a XI. kerületben lakik, a 20-as éveiben jár, és egy videót amin gyakran köhög (a pontos betegségét viszont nem ismeri). Ebben az esetben Zsuzsa néni szinte teljesen biztos lehet, hogy az 5. táblázat 4. rekordja a 3. táblázat 2. rekordjához tartozik, mivel az 5. táblázatban más betegségnek nem tünete a köhögés. Vagyis ebben az esetben az 5. táblázat 4. rekordja bizonyosan személyes adat, amelynek egyedi azonosítója a neve, az irányítószáma, a születési éve, és a betegségének egy tünete (köhögés).
+gt
 | Rekord | Nem | Irányítószám | Születési dátum | Betegség |
 |--- | ---|---|---| --- |
 |1. | Kovács Attila | 1123 | 1943-\*-02 | Meningitis |
 |2. | Kovács Attila |1123| 1943-\*-02 | Appendicitis |
-|3. | Kovács Ferenc | 8423 | 1971-01-\* | Gastroenteritis |
-|4. | Kovács Ferenc | 8423 | 1971-01-\* | Bronchitis |
-|5. | Nagy Tibor | 1313 | 1981-\*-\* | Appendicitis |
+|3. | Kovács Ferenc | 1114 | 19\*-\*-\* | Gastroenteritis |
+|4. | Kovács Ferenc | 1114 | 19\*-\*-\* | Bronchitis |
+|5. | Kovács Ferenc | 1114 | 19\*-\*-\* | Appendicitis |
 |6. | Nagy Tibor | 1313 | 1981-\*-\* | Meningitis |
 
 5\. táblázat: Kórházi adatok
@@ -140,7 +122,7 @@ Látható, hogy nagyon **nehéz feltételezéséket tenni egy támadó háttért
 
 
 ### Adatok egyedisége az adatbázisban és a populációban
-A fenti nehézségek ellenére a GDPR [előírhatja](https://www.privacy-regulation.eu/hu/35.htm) az adatok azonosíthatóságának „best-effort" elemzését, aminek megítélése sajnos elég szubjektív, hiszen mindig kimaradhat egy Terike néni a felsorolásból, akinek létezése csak később lesz nyilvánvaló. Vagyis **az adat azonosíthatósága (és személyes jellege) idővel változhat**. Ennek a törvény tudatában van, és ezért ezekben az esetekben [újabb](https://www.privacy-regulation.eu/hu/35.htm) analízist ír elő.
+A fenti nehézségek ellenére a GDPR [előírhatja](https://www.privacy-regulation.eu/hu/35.htm) az adatok azonosíthatóságának „best-effort" elemzését, aminek megítélése sajnos elég szubjektív, hiszen mindig kimaradhat egy Terike néni a felsorolásból, akinek létezése csak később lesz nyilvánvaló. Vagyis **az adat azonosíthatósága (és személyes jellege) idővel változhat**. Ennek a rendelet tudatában van, és ezért ezekben az esetekben [újabb](https://www.privacy-regulation.eu/hu/35.htm) analízist ír elő.
 
 Az azonosíthatóság eldöntéséhez szükséges tudnunk, hogy egy rekord attribútum-értékei mennyire egyediek a populációban (és nem az adatbázisban), ahonnan a rekord számazik. Visszautalva az első példára, ha több Kovács Ferenc nevű ember él a XI. kerületben, akkor az 1. táblázat 4. rekordja nem személyes adat Terike néni (és valószínűleg senki más) számára. Annak eldöntése, hogy egy rekord egyedi-e az adott populációban viszont általában nehéz, hiszen ritkán ismerjük a populáció minden tagját. Ugyan léteznek [statisztikai modellek és eszközök rekordok egyediségének becslésére egy populációban]( http://www.ihsn.org/sites/default/files/resources/ihsn-working-paper-007-Oct27.pdf), ezen modellek többsége legjobb esetben is csak az átlagos, de nem a legrosszabb esetekre adnak valamilyen mérőszámot rekordok egyediségére.
 
@@ -164,12 +146,6 @@ attribútum értékekkel, akkor Terike néni nem tudja meghatározni, hogy melyi
 
 Természetesen, **ha egy rekord egyedi az adatbázisban, az nem jelenti azt, hogy egyedi a populációban is** (ld. a budapesti Kovács Ferenc esetét az 1. táblázatban). Azaz, egyedi rekordok az adatbázisban nem feltétlen minősülnek személyes adatnak, de nem túl biztató ilyen rekordok jelenléte; főleg, ha a populáción belüli egyediségét nem lehet cáfolni vagy az adatbázis tartalmazza a populáció nagy részét (ami nem ritka manapság).
 Ezért a gyakorlatban legtöbbször csak az adatbázison belüli egyediséget használják az adat személyességének mérésére; ha egy adatbázisban vannak olyan rekordok, amelyek egyediek valamely plauzibilis támadó számára (Terike néni aki ismeri a lakhelyet, nevet és születési dátumot), akkor jó eséllyel tartalmaz személyes adatot az adatbázis.
-<!---
-Egy fontos dolog megjegyzendő: A fenti példákban feltételeztük, hogy ha egy rekord nem egyedi a populációban, de egyedi az adatbázisban akkor személyes.
-Ez viszont nem zárja ki, hogy a rekord értékei (pl. betegség) teljes pontossággal megtanulhatóak. Valóban, ha több K. Ferenc él a XI. Kerületben és azok mindegyike illeszkedig az 1. táblázat 4. rekordjára, akkor mindegyik Bronchitisben szenved, tehát Terike néni budapesti szomszédja is.  Hasonlóan,
-függetlenül k értékétől az 5. táblázatban, a betegség mindig teljes bizonyossággal megtanulható, hiszen minden k rekordhoz azonos betegség tartozik. Pl. nem számít, hogy a 3. és 4. rekordok egyaránt tartozhatnak K. Ferenchez, a betegsége mindenképpen Bronchitis. Vagyis ** ha egy személy rekordja nem lokalizálható egyértelműen attól még az adata megtanulható teljes bizonyossággal ** (beleértve a betegségét). A GDPR eredeti szövegezése nem tér ki az ilyen esetekre, és csak a rekordok lokalizálhatóságát (a személy azonosíthatóságát) vizsgálja.
--->
-
 
 ### Komplex, sok attribútumú személyes adatok
 
@@ -259,24 +235,6 @@ Először minden utas TOP K állomását meghatározzuk, majd megnézzük, hogy 
 |Top-4 | 82.1% (120 368 egyedi rekord)|79.4% (192 163 egyedi rekord)|
 |Top-5 | 97.4% (129 608 egyedi rekord)|96.3% (216 135 egyedi rekord)|
 
-
-<!---
-|Top-K | Metró | Busz |
-|---|---|---|
-|Top-2 | 0.01% (84 rekord) | 3.32% (25 673 rekord)|
-|Top-3 | 5.11% (43 315 rekord)| 15.49% (119 783 rekord) |
-|Top-4 | 14.20% (120 368 rekord)  | 24.85% (192 163 rekord) |
-|Top-5 | 15.29% (129 608 rekord) | 27.95% (216 135 rekord)|
--->
-
-<!--
-|Top-K | Metró | Busz |
-|---|---|---|
-|Top-2 | 0.03% |5.56% |
-|Top-3 | 21.4% |41.4% |
-|Top-4 | 82.1% |79.4% |
-|Top-5 | 97.4% |96.3% |
--->
 
 Például ha egy utas rekordja legalább 3 metróállomást tartalmaz,
 akkor ez a rekord 21.4%-os eséllyel egyedi az adatbázisban.
