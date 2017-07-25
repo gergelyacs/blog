@@ -94,7 +94,7 @@ antivírus szoftver, hálózati szegregálás, stb.) védik a kórházi és áll
 
 Megjegyzések:
 * A fenti **adatok nem azért személyesek, mert érzékeny információt tartalmaznak (pl. betegség), hanem azért, mert egy plauzibilis támadó képes megmondani, hogy melyik rekord melyik természetes személyhez tartozik, függetlenül az adat jellegétől.** Más szavakkal, ha a fenti táblázatok nem tartalmaznák a betegséget mint attribútumot, attól még személyes adatnak minősülhetnek és vonatkozhatnak rá a GDPR kötelezettségei.
-* A gyakorlatban szükséges az egyes támadások **kockázatának elemzése**, amit a GDPR is megkövetelhet az [Adatvédelmi hatásvizsgálat](https://www.privacy-regulation.eu/hu/35.htm) (Data Protection Impact Assessment) részeként. Egy ilyen elemzés a plauzibilitás és sikervalószínűségek becslésén túl szükségessé teheti a potenciálisan érintett személyek/rekordok számának becslését (scale), illetve a személyeknek okozott potenciális materiális/erkölcsi/fizikai károkat (impact). Például Gizi és Zsuzsa néni kevésbbé plauzibilisek mint Terike néni, de lényegesen több személyt újrazonosíthatnak, és így az általuk okozott potenciális kár is lényegesen nagyobb lehet.
+* A gyakorlatban szükséges az egyes támadások **kockázatának elemzése**, amit a GDPR is megkövetel az [Adatvédelmi hatásvizsgálat](https://www.privacy-regulation.eu/hu/35.htm) (Data Protection Impact Assessment) részeként. Egy ilyen elemzés a plauzibilitás és sikervalószínűségek becslésén túl szükségessé teheti a támadásban érintett személyek/rekordok számának becslését (scale), illetve a személyeknek okozott potenciális materiális/erkölcsi/fizikai károkat (impact). Például Gizi és Zsuzsa néni kevésbbé plauzibilisek mint Terike néni, de lényegesen több személyt újrazonosíthatnak, és így az általuk okozott potenciális kár is lényegesen nagyobb lehet.
 
 ## Személyes adatok mérése
 
@@ -106,7 +106,7 @@ Néhány esetben ez könnyű, például amikor egy rekord valamely plauzibilis t
 „best-effort" jellegű elemzést az adat felhasználásától függően). Honnan lehetne tudni, hogy a támadók akik hozzáférhetnek a kórházi adatokhoz (pl. alkalmazott, biztosító, bank, stb.) mit tudhatnak egy betegről vagy betegek demográfiai adatairól, ami a beteg egyedi azonosítója lehet *a populációban*?
 
 Vegyük Zsuzsa néni esetét K. Ferenccel, de most Zsuzsa néni csak a 3. és 5. táblázatokhoz fér hozzá. Ezután Zsuzsa néni lelkes Facebook/Instagram felhasználó révén rékeres az összes K.Ferenc nevű felhasználóra, és talál egy K. Ferencet aki a megosztott képei alapján a XI. kerületben lakik, a 20-as éveiben jár, és egy videót amin gyakran köhög (a pontos betegségét viszont nem ismeri). Ebben az esetben Zsuzsa néni szinte teljesen biztos lehet, hogy az 5. táblázat 4. rekordja a 3. táblázat 2. rekordjához tartozik, mivel az 5. táblázatban más betegségnek nem tünete a köhögés. Vagyis ebben az esetben az 5. táblázat 4. rekordja bizonyosan személyes adat, amelynek egyedi azonosítója a neve, az irányítószáma, a születési éve, és a betegségének egy tünete (köhögés).
-gt
+
 | Rekord | Nem | Irányítószám | Születési dátum | Betegség |
 |--- | ---|---|---| --- |
 |1. | Kovács Attila | 1123 | 1943-\*-02 | Meningitis |
