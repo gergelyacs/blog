@@ -292,7 +292,7 @@ pozitív log-normál és [Weibull](https://en.wikipedia.org/wiki/Weibull_distrib
 
 Metro             |  Busz
 :-------------------------:|:-------------------------:
-[![alt text](/wp-content/uploads/2017/07/ccdf_metro.png)] (http://blog.crysys.hu "Metro") | [![alt text](/wp-content/uploads/2017/07/ccdf_bus.png)] (http://blog.crysys.hu "Busz")
+![alt text](/wp-content/uploads/2017/07/ccdf_metro.png) | ![alt text](/wp-content/uploads/2017/07/ccdf_bus.png)
 
 ## Konklúzió
 
