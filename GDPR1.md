@@ -90,6 +90,7 @@ Például ha a való életben létezik egy Terike néni (vagyis plauzibilis, hog
 Ennek megítéléséhez szükséges minden plauzibilis támadás feltérképezése és azok sikervalószínűségeinek becslése.
 
 Megjegyzések:
+
 * A fenti **adatok nem azért minősülnek személyesnek, mert érzékeny információt tartalmaznak (pl. betegség), hanem azért, mert egy plauzibilis támadó képes megmondani, hogy melyik rekord melyik természetes személyhez tartozik, függetlenül az adat jellegétől.** Más szavakkal, ha a fenti táblázatok nem tartalmaznák a betegséget mint attribútumot, attól még személyes adatnak minősülhetnek és vonatkozhatnak rá a GDPR kötelezettségei.
 * Általánosan igaz, hogy a belső alkalmazottak (a fenti esetben nővérek) gyakran a legvalószínűbb támadók,
 hiszen részükről kevés technikai felkészültséget igényel az adatlopás (eleve hozzáférésük
@@ -191,7 +192,7 @@ Az adatbázisok főbb jellemzőit a 8. táblázat mutatja.
 
 
 | | Metró | Busz|
-|---|---|---|
+|--:|---|---|
 | Utasok száma | 846,648 | 771,195 |
 | Állomások száma | 66 |861 |
 | Legtöbb állomás utasonként | 27 |54 |
