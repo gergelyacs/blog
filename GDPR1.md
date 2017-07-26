@@ -289,7 +289,6 @@ A következő ábrák illusztrálják a metró és busz adathalmazok heavy-taile
 állomások gyakoriságának a komplemens kumulatív eloszlásfüggvényét ([CCDF](https://en.wikipedia.org/wiki/Cumulative_distribution_function)), valamint az erre legjobban illeszkedő exponenciális és heavy-tailed modellt. Az ábrák jól mutatják, hogy az exponenciális modell lényegesen rosszabbul illeszkedik mint a legjobb heavy-tailed modellek, amelyek a mi esetünkben a
 pozitív log-normál és [Weibull](https://en.wikipedia.org/wiki/Weibull_distribution) eloszlások voltak. Azaz, a **rekordok többsége nagy valószínűséggel egyedi!** Az illeszkedést a [powerlaw]( https://pypi.python.org/pypi/powerlaw) python csomaggal számoltuk. Érdemes megjegyezni, hogy a vizsgált heavy-tailed eloszlásoknak több paraméterük van mint az exponenciális eloszlásnak, ezért [overfitting]( https://en.wikipedia.org/wiki/Overfitting) miatt a heavy-tailed eloszlások lehet, hogy csak az adatbázist modellezik pontosabban de nem a populációt (habár ennek esélye kicsi, mivel az adatbázisok jelen esetben elég nagyok).
 
-
 Metro             |  Busz
 :-------------------------:|:-------------------------:
 ![alt text](/wp-content/uploads/2017/07/ccdf_metro.png) | ![alt text](/wp-content/uploads/2017/07/ccdf_bus.png)
