@@ -216,6 +216,7 @@ vagyis azon rekordok %-os arányát, amelyek legalább N meglátogatott állomá
  -->
 
 Két főbb támadást képzelhetünk el:
+
 1. A támadó ismeri egy tetszőleges utas K tetszőleges állomását, és lokalizálni szeretné az utas rekordját.
 2. A támadó ismeri egy tetszőleges utas K legtöbbször látogatott
 állomását (vagyis az utas TOP K állomását), és lokalizálni szeretné az utas rekordját.
