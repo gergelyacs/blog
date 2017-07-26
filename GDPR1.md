@@ -242,7 +242,6 @@ Ugyanez az érték már 41.4% a busz-adatbázisban. Ha az összes rekordot nézz
  A gyakorlatban a TOP-3 állomás könnyen meghatározható egy személyről, de sokan jóval több információt megosztanak magukról közösségi portálokon (pl. képek formájában), ezért náluk akár K > 5 támadó is lehet plauzibilis több mint 95%-os sikervalószínűséggel, feltéve ha az adatbázis elég nagy és nagyjából lefedi az egész populációt.
 
 ### Tetszőleges K állomás egyedisége
-
 Ha egy utas rekordja *legalább* K állomást tartalmaz, akkor milyen valószínűséggel lesz a rekordja egyedi az adatbázisban egy olyan támadó számára, aki ismerheti az utas bármely K állomását?
 
 A fenti valószínűség számításához szükséges a rekordokban előforduló összes K állomás egyediségének vizsgálatára (vagyis hány más rekordban fordulnak elő), ami túl sokáig tartana. Ezért inkább véletlen mintavételezéssel becsüljük K állomás egyediségét. A [részleteket](https://arxiv.org/pdf/1507.07851.pdf) mellőzve, erre itt egy egyszerű módszert mutatunk. 
@@ -293,7 +292,7 @@ pozitív log-normál és [Weibull](https://en.wikipedia.org/wiki/Weibull_distrib
 
 Metro             |  Busz
 :-------------------------:|:-------------------------:
-![Alt](ccdf_metro.png "Metro")|  ![Alt](ccdf_bus.png "Bus")
+[![alt text](/wp-content/uploads/2017/07/ccdf_metro.png)] (http://blog.crysys.hu "Metro") | [![alt text](/wp-content/uploads/2017/07/ccdf_bus.png)] (http://blog.crysys.hu "Busz")
 
 ## Konklúzió
 
