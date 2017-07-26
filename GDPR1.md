@@ -242,7 +242,7 @@ Ugyanez az érték már 41.4% a busz-adatbázisban. Ha az összes rekordot nézz
  A gyakorlatban a TOP-3 állomás könnyen meghatározható egy személyről, de sokan jóval több információt megosztanak magukról közösségi portálokon (pl. képek formájában), ezért náluk akár K > 5 támadó is lehet plauzibilis több mint 95%-os sikervalószínűséggel, feltéve ha az adatbázis elég nagy és nagyjából lefedi az egész populációt.
 
 ### Tetszőleges K állomás egyedisége
-Ha egy utas rekordja *legalább* K állomást tartalmaz, akkor milyen valószínűséggel lesz a rekordja egyedi az adatbázisban egy olyan támadó számára, aki ismerheti az utas bármely K állomását?
+Milyen valószínűséggel lesz egy utas rekordja egyedi az adatbázisban egy olyan támadó számára, aki ismerheti az utas bármely K állomását (feltéve, hogy a rekord *legalább* K állomást tartalmaz)?
 
 A fenti valószínűség számításához szükséges a rekordokban előforduló összes K állomás egyediségének vizsgálatára (vagyis hány más rekordban fordulnak elő), ami túl sokáig tartana. Ezért inkább véletlen mintavételezéssel becsüljük K állomás egyediségét. A [részleteket](https://arxiv.org/pdf/1507.07851.pdf) mellőzve, erre itt egy egyszerű módszert mutatunk. 
 
@@ -274,7 +274,7 @@ Ezt a kísérletet megismételjük elég sokszor (pl. [30000 ismétlés már el�
 
 Például ha egy utas rekordja legalább 3 metróállomást tartalmaz (ez 205 111 rekordra igaz, ami az összes rekord 24.2%-a), akkor ez a rekord 20.2%-os eséllyel lesz egyedi a metró adatbázisban.  
 
-Látható, hogy a busz adatbázis jóval több egyedi rekordot (és így potenciálisan több személyes adatot) tartalmaz mint a metró adatbázis. Ennek egyik fő oka, hogy több buszállomás létezik (893) mint metróállomás (68), és nyilván egy utas nagyobb eséllyel lesz egyedi ha több különböző állomást látogathat meg. Ahogy ezt a következőkben is megerősítjük, az utasok egymástól valóban elég eltérő metró- és buszállomásokat látogatnak meg. 
+Látható, hogy a busz adatbázis jóval több egyedi rekordot (és így potenciálisan több személyes adatot) tartalmaz mint a metró adatbázis. Ennek egyik fő oka, hogy több buszállomás létezik (861) mint metróállomás (66), és nyilván egy utas nagyobb eséllyel lesz egyedi ha több különböző állomást látogathat meg. Ahogy ezt a következőkben is megerősítjük, az utasok egymástól valóban elég eltérő metró- és buszállomásokat látogatnak meg. 
 
 ### Egyediség egyéb indikátorai
 
