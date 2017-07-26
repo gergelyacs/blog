@@ -81,7 +81,7 @@ Ebben az esetben a név, irányítószám és nem együttese egyedi azonosítój
 
 ### Plauzibilitás és sikervalószínűségek
 Jogosan felmerülhet a kérdés: ha Zsuzsa néni jó eséllyel újra tudja azonosítani az 1. táblázat 4. rekordját, de Terike néni nem, akkor az személyes adat-e a GDPR szerint? Hasonlóan ha Gizi néni minden embert 63%-os valószínűséggel azonosít, de egyiket sem teljes bizonyossággal, akkor a 4. táblázat bármely rekordja személyes adatnak minősül vagy sem? Hasonló bizonytalanság fellép Zsuzsa néni esetében, hiszen ritkán, de [fiatal felnőttek is szenvedhetnek Alzheimer kórban]( https://en.wikipedia.org/wiki/Early-onset_Alzheimer%27s_disease). Terike néni hihetőbb támadónak tűnik mint a többiek, hiszen neki „csak” a kórházi adatokhoz kell hozzáférnie és nincs szüksége a 3. táblázatra, hogy a szomszédja adatát lokalizálja az 1. táblázatban. Ugyanakkor Zsuzsa és Gizi néni K. Ferencen kívül számos más személyt is újra azonosíthatnak, hiszen hozzáférnek a demográfiai adatokhoz.
-A GDPR nem definiál explicit felső korlátot arra, hogy mennyire kell egy támadónak plauzibilisnek lennie, és arra sem, hogy ilyen támadásoknak milyen minimális sikervalószínűségűeknek kell lenniük ahhoz, hogy egy (vagy több) rekord azonosítható legyen (azaz személyesnek minősüljön). Viszont megköveteli, hogy a sikervalószínűségek ésszerűen alacsony értékek legyenek a lehető legtöbb plauzibilis támadót figyelembe véve ([Recital 26](https://www.privacy-regulation.eu/hu/r26.htm)).
+A GDPR nem definiál explicit felső korlátot arra, hogy mennyire kell egy támadónak plauzibilisnek lennie, és arra sem, hogy ilyen támadásoknak milyen minimális sikervalószínűségűeknek kell lenniük ahhoz, hogy egy (vagy több) rekord azonosítható legyen (azaz személyesnek minősüljön). Viszont megköveteli, hogy a sikervalószínűségek ésszerűen alacsony értékek legyenek az adatbázisban szereplő minden személyre a lehető legtöbb plauzibilis támadót figyelembe véve ([Recital 26](https://www.privacy-regulation.eu/hu/r26.htm)).
 
 A plauzibilitás és sikervalószínűségek becslésénél figyelembe kell venni, hogy a potenciális támadók nem feltétlenül ismerik a (kvázi) azonosítók összes elemét (pl. csak az irányítószámot, de a születési dátumot nem), valamint ezek megtanulása túl költséges lehet számukra.
 Például ha a való életben létezik egy Terike néni (vagyis plauzibilis, hogy ismeri a szomszédja néhány adatát és hozzáfér a 2. táblázathoz), akkor K. Ferenc rekordja a 2. táblázatban személyes adatnak minősülhet. Ha Zsuzsa és Gizi néni létezése hihető (vagyis plauzibilis, hogy hozzáférnek a 3. és 4. táblázathoz és ez számukra nem okoz túl nagy költséget), akkor K. Ferenc rekordja az 1. és 4. táblázatban is személyes adatnak minősülhet. 
@@ -90,7 +90,7 @@ Például ha a való életben létezik egy Terike néni (vagyis plauzibilis, hog
 Ennek megítéléséhez szükséges minden plauzibilis támadás feltérképezése és azok sikervalószínűségeinek becslése.
 
 Megjegyzések:
-* A fenti **adatok nem azért minősülhetnek személyesnek, mert érzékeny információt tartalmaznak (pl. betegség), hanem azért, mert egy plauzibilis támadó képes megmondani, hogy melyik rekord melyik természetes személyhez tartozik, függetlenül az adat jellegétől.** Más szavakkal, ha a fenti táblázatok nem tartalmaznák a betegséget mint attribútumot, attól még személyes adatnak minősülhetnek és vonatkozhatnak rá a GDPR kötelezettségei.
+* A fenti **adatok nem azért minősülnek személyesnek, mert érzékeny információt tartalmaznak (pl. betegség), hanem azért, mert egy plauzibilis támadó képes megmondani, hogy melyik rekord melyik természetes személyhez tartozik, függetlenül az adat jellegétől.** Más szavakkal, ha a fenti táblázatok nem tartalmaznák a betegséget mint attribútumot, attól még személyes adatnak minősülhetnek és vonatkozhatnak rá a GDPR kötelezettségei.
 * Általánosan igaz, hogy a belső alkalmazottak (a fenti esetben nővérek) gyakran a legvalószínűbb támadók,
 hiszen részükről kevés technikai felkészültséget igényel az adatlopás (eleve hozzáférésük
 van az adatbázisokhoz) függetlenül attól, hogy milyen biztonsági megoldásokkal (tűzfal, jelszó,
@@ -195,8 +195,8 @@ Az adatbázisok főbb jellemzőit a 8. táblázat mutatja.
 | Utasok száma | 846,648 | 771,195 |
 | Állomások száma | 66 |861 |
 | Legtöbb állomás utasonként | 27 |54 |
-| Átlagos állomások száma utasonként| 1.97 |2.75 |
-| Állomások számának szórása utasonként|  1.64 |  2.53 |
+| Átlagos állomások száma utasonként| 1.93 |2.64 |
+| Állomások számának szórása utasonként|  1.67 |  2.51 |
 
 8\. táblázat: Metró- és buszállomások látogatottsága
 
@@ -288,7 +288,7 @@ Egy adathalmaz ritka, ha minden utas csak néhány állomást látogatott meg. E
 
 A heavy-tailed tulajdonság nagyjából azt jelenti, hogy a legtöbb állomás gyakorisága alacsony az adathalmazban. Precízebben fogalmazva, ha ábrázoljuk az állomások elfordulási számának (gyakoriságának) eloszlását az adatbázisban, akkor ezen eloszlás [sűrűségfüggvényének](https://en.wikipedia.org/wiki/Probability_density_function) a farka „vastagabb", mint egy [exponenciális eloszlás](https://en.wikipedia.org/wiki/Exponential_distribution) sűrűségfüggvényének farka. Ilyen ismertebb eloszlások pl. a [power law](https://en.wikipedia.org/wiki/Power_law) és a [log-normál]( https://en.wikipedia.org/wiki/Log-normal_distribution).
 A következő ábrák illusztrálják a metró és busz adathalmazok heavy-tailed tulajdonságát. Ábrázoltuk az
-állomások gyakoriságának a komplemens kumulatív eloszlásfüggvényét ([CCDF](https://en.wikipedia.org/wiki/Cumulative_distribution_function)), valamint az erre legjobban illeszkedő exponenciális és heavy-tailed modellt. Ezen ábrák mutatják, hogy az exponenciális modell lényegesen rosszabbul illeszkedik mint a legjobb heavy-tailed modellek, amelyek a mi esetünkben a
+állomások gyakoriságának a komplemens kumulatív eloszlásfüggvényét ([CCDF](https://en.wikipedia.org/wiki/Cumulative_distribution_function)), valamint az erre legjobban illeszkedő exponenciális és heavy-tailed modellt. Az ábrák jól mutatják, hogy az exponenciális modell lényegesen rosszabbul illeszkedik mint a legjobb heavy-tailed modellek, amelyek a mi esetünkben a
 pozitív log-normál és [Weibull](https://en.wikipedia.org/wiki/Weibull_distribution) eloszlások voltak. Azaz, a **rekordok többsége nagy valószínűséggel egyedi!** Az illeszkedést a [powerlaw]( https://pypi.python.org/pypi/powerlaw) python csomaggal számoltuk. Érdemes megjegyezni, hogy a vizsgált heavy-tailed eloszlásoknak több paraméterük van mint az exponenciális eloszlásnak, ezért [overfitting]( https://en.wikipedia.org/wiki/Overfitting) miatt a heavy-tailed eloszlások lehet, hogy csak az adatbázist modellezik pontosabban de nem a populációt (habár ennek esélye kicsi, mivel az adatbázisok jelen esetben elég nagyok).
 
 
