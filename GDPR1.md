@@ -80,6 +80,7 @@ Ebben az esetben a név, irányítószám és nem együttese egyedi azonosítój
 
 
 ### Plauzibilitás és sikervalószínűségek
+
 Jogosan felmerülhet a kérdés: ha Zsuzsa néni jó eséllyel újra tudja azonosítani az 1. táblázat 4. rekordját, de Terike néni nem, akkor az személyes adat-e a GDPR szerint? Hasonlóan ha Gizi néni minden embert 63%-os valószínűséggel azonosít, de egyiket sem teljes bizonyossággal, akkor a 4. táblázat bármely rekordja személyes adatnak minősül vagy sem? Hasonló bizonytalanság fellép Zsuzsa néni esetében, hiszen ritkán, de [fiatal felnőttek is szenvedhetnek Alzheimer kórban]( https://en.wikipedia.org/wiki/Early-onset_Alzheimer%27s_disease). Terike néni hihetőbb támadónak tűnik mint a többiek, hiszen neki „csak” a kórházi adatokhoz kell hozzáférnie és nincs szüksége a 3. táblázatra, hogy a szomszédja adatát lokalizálja az 1. táblázatban. Ugyanakkor Zsuzsa és Gizi néni K. Ferencen kívül számos más személyt is újra azonosíthatnak, hiszen hozzáférnek a demográfiai adatokhoz.
 A GDPR nem definiál explicit felső korlátot arra, hogy mennyire kell egy támadónak plauzibilisnek lennie, és arra sem, hogy ilyen támadásoknak milyen minimális sikervalószínűségűeknek kell lenniük ahhoz, hogy egy (vagy több) rekord azonosítható legyen (azaz személyesnek minősüljön). Viszont megköveteli, hogy a sikervalószínűségek ésszerűen alacsony értékek legyenek az adatbázisban szereplő minden személyre a lehető legtöbb plauzibilis támadót figyelembe véve ([Recital 26](https://www.privacy-regulation.eu/hu/r26.htm)).
 
@@ -125,6 +126,7 @@ Látható, hogy nagyon **nehéz feltételezéséket tenni egy támadó háttért
 
 
 ### Adatok egyedisége az adatbázisban és a populációban
+
 A fenti nehézségek ellenére a GDPR [előírhatja](https://www.privacy-regulation.eu/hu/35.htm) az adatok azonosíthatóságának „best-effort" elemzését, aminek megítélése sajnos elég szubjektív, hiszen mindig kimaradhat egy Terike/Zsuzsa/Gizi néni a felsorolásból, akinek létezése csak később lesz nyilvánvaló. Vagyis **az adat azonosíthatósága (és személyes jellege) idővel változhat**. Ennek a rendelet tudatában van, és ezért ezekben az esetekben [újabb](https://www.privacy-regulation.eu/hu/35.htm) analízist ír elő.
 
 Az azonosíthatóság eldöntéséhez szükséges tudnunk, hogy egy rekord attribútum-értékei mennyire egyediek a populációban (és nem az adatbázisban), ahonnan a rekord számazik. Visszautalva az első példára, ha több Kovács Ferenc nevű ember él a XI. kerületben, akkor az 1. táblázat 4. rekordja nem személyes adat Terike néni (és valószínűleg senki más) számára. Annak eldöntése, hogy egy rekord egyedi-e az adott populációban viszont általában nehéz, hiszen ritkán ismerjük a populáció minden tagját. Ugyan léteznek [statisztikai modellek és eszközök rekordok egyediségének becslésére egy populációban]( http://www.ihsn.org/sites/default/files/resources/ihsn-working-paper-007-Oct27.pdf), ezen modellek többsége legjobb esetben is csak az átlagos, de nem a legrosszabb esetekre adnak valamilyen mérőszámot rekordok egyediségére.
@@ -180,12 +182,7 @@ Például tegyük fel, hogy bárki megismerhet K darab, egy bizonyos személy á
 
 Példaként nézzünk egy komplexebb adathalmazt, ami egy 1.5 millió lakosú város közlekedési (metró- és busz-) hálózatának használatát tartalmazza. Adott két adatbázis, amelynek minden egyes sora megfelel egy elektronikus jegynek/bérletnek (smart kártya), és tartalmazza azon állomások listáját, ahol a jegyet/bérletet érvényesítették/leolvasták (az elektronikus jegyek többnyire időalapúak, egyetlen jegy az érvényességi idején belül több állomáson is leolvasásra kerülhet). 
 A továbbiakban tegyük fel, hogy egy utas csakis egy jegyet/bérletet használt a megfigyelt időtartamban (1 hét), vagyis minden sor megfelel egy utas által meglátogatott állomások egy részhalmazának (tehát egy állomás csak egyszer szerepelhet egy rekordban).
-<!---
 
--->
-<!---
- Kene ide egy egy pelda rekord/nehany rekord egy tablazatban
- -->
 A metró adatbázisban összesen 66 állomás (attribútum)
 és 846 648 utas (rekord) található. A busz adatbázisban 861 állomás (attribútum) és 771 195 utas (rekord).
 Az adatbázisok főbb jellemzőit a 8. táblázat mutatja.
@@ -245,6 +242,7 @@ Ugyanez az érték már 41.4% a busz-adatbázisban. Ha az összes rekordot nézz
  A gyakorlatban a TOP-3 állomás könnyen meghatározható egy személyről, de sokan jóval több információt megosztanak magukról közösségi portálokon (pl. képek formájában), ezért náluk akár K > 5 támadó is lehet plauzibilis több mint 95%-os sikervalószínűséggel, feltéve ha az adatbázis elég nagy és nagyjából lefedi az egész populációt.
 
 ### Tetszőleges K állomás egyedisége
+
 Ha egy utas rekordja *legalább* K állomást tartalmaz, akkor milyen valószínűséggel lesz a rekordja egyedi az adatbázisban egy olyan támadó számára, aki ismerheti az utas bármely K állomását?
 
 A fenti valószínűség számításához szükséges a rekordokban előforduló összes K állomás egyediségének vizsgálatára (vagyis hány más rekordban fordulnak elő), ami túl sokáig tartana. Ezért inkább véletlen mintavételezéssel becsüljük K állomás egyediségét. A [részleteket](https://arxiv.org/pdf/1507.07851.pdf) mellőzve, erre itt egy egyszerű módszert mutatunk. 
@@ -295,14 +293,9 @@ pozitív log-normál és [Weibull](https://en.wikipedia.org/wiki/Weibull_distrib
 
 Metro             |  Busz
 :-------------------------:|:-------------------------:
-![alt text](./ccdf_metro.png "Metro")|  ![alt text](./ccdf_bus.png "Bus")
+![Alt](ccdf_metro.png "Metro")|  ![Alt](ccdf_bus.png "Bus")
 
-
-
-
-
-
-### Konklúzió
+## Konklúzió
 
 Láthattuk, hogy az adatok azonosíthatóságának és így személyes jellegének megítélése attól függ, hogy ki férhet hozzá az adathoz, és milyen előzetes (háttér)tudással rendelkezik az adattulajdonosokról. Másrészt,  a támadó plauzibilitását (az egyénekről alkotott háttértudását) nehéz igazolni. Ennek oka, hogy napjainkban rengeteg adat érhető el az emberekről, amit részben ők maguk részben más [cégek](https://en.wikipedia.org/wiki/AOL_search_data_leak) vagy [személyek](http://fc13.ifca.ai/proc/10-1.pdf) osztanak meg akarva vagy akaratlanul. Az azonosíthatóság sikervalószínűségét sem mindig könnyű számolni, főleg ha az adat komplex (sok attribútumot tartalmaz).
 
