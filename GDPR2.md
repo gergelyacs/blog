@@ -15,7 +15,7 @@ A GDPR ugyan nem definiálja az aggregált (összesített) adat fogalmát, de va
 FONTOS: A vizsgálat célja csakis az aggregált adat, nem az adatbázis amin az aggregátumot számoljuk. Más szavakkal a kérdés, hogy személyes adatnak minősülnek-e az aggregátumok egy olyan támadó számára, aki nem fér hozzá az adatbázishoz.
 
 | Rekord | Nem | Irányítószám | Vércukor |  Betegség |
-|--- | ---|---|---| --- | --- |
+|--- | ---|---|---| --- |
 |1. | Kovács Attila | 1123 | 4.3 | Meningitis |
 |2. | Kovács Attila |1123| 5.2 | Appendicitis |
 |3. | Kovács Ferenc | 1114 | 6.1 | Influenza |
