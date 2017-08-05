@@ -27,7 +27,7 @@ FONTOS: A vizsgálat célja csakis az aggregált adat, nem az adatbázis amin az
 
 ## Első példa: Célzott támadás
 
-Tekintsük Zsuzsa nénit az [előző posztból](http://blog.crysys.hu/2017/07/628/), aki a Facebookon talál egy K. Ferenc nevű felhasználót. K. Ferenc megosztott képei alapján egy kis községben lakik aminek az irányítószámát is megadta (8423), a 20-as éveiben jár, és krónikus bőrkiütésben szenved (a pontos betegségét ez alapján még nem ismeri).  Zsuzsa néni ugyan az 1. táblázathoz nem fér hozzá, de jogosult az alábbi lekérdezéshez: Hány olyan beteg van aki az $ \latex X$ irányítószám alatt lakik és a betegsége $Y$? Ezután lefuttatja az összes olyan kérést, ahol $X=8423$ és $Y$ pedig egy olyan betegség, aminek tünete a krónikus bőrkiütés. Ha csak egy ilyen lekérdezés értéke 1 a többié pedig 0, akkor Zsuzsa néni megtalálta K. Ferenc pontos betegségét (erre jó esély van ha K. Ferenc vidéki, és a községben ahol él más nem volt a kórházban krónikus bőrkiütéssel).
+Tekintsük Zsuzsa nénit az [előző posztból](http://blog.crysys.hu/2017/07/628/), aki a Facebookon talál egy K. Ferenc nevű felhasználót. K. Ferenc megosztott képei alapján egy kis községben lakik aminek az irányítószámát is megadta (8423), a 20-as éveiben jár, és krónikus bőrkiütésben szenved (a pontos betegségét ez alapján még nem ismeri).  Zsuzsa néni ugyan az 1. táblázathoz nem fér hozzá, de jogosult az alábbi lekérdezéshez: Hány olyan beteg van aki az $X$ irányítószám alatt lakik és a betegsége $Y$? Ezután lefuttatja az összes olyan kérést, ahol $X=8423$ és $Y$ pedig egy olyan betegség, aminek tünete a krónikus bőrkiütés. Ha csak egy ilyen lekérdezés értéke 1 a többié pedig 0, akkor Zsuzsa néni megtalálta K. Ferenc pontos betegségét (erre jó esély van ha K. Ferenc vidéki, és a községben ahol él más nem volt a kórházban krónikus bőrkiütéssel).
 
  A probléma tehát ismét az, hogy *a támadó háttértudása* (a *mindenki* számára elérhető a tény, hogy egy fiatal K. Ferenc krónikus bőrkiütésben szenved és egy ismert községben lakik) *lehetővé teheti személyes adatok visszafejtését aggregált adatokból*. Ahogyan azt az előző posztban is megmutattuk, manapság a legtöbb emberről rengeteg nyilvános adat elérhető maguk vagy mások által. Így a hasonló támadások létezését lehetetlen kizárni. Például előfordulhat, hogy Zsuzsa néni nemcsak bőrkiütést hanem egyéb más tünetet is megfigyel K. Ferencről a képei alapján, így a szóbajöhető betegségek száma kevesebb, vagyis még kevesebb lekérdezésből még nagyobb eséllyel kiderítheti K. Ferenc pontos betegségét. 
 
@@ -74,8 +74,8 @@ Először csak egy oszlopot rekonstruálunk, a többi hasonlóan történik. Leg
 4. Old meg az alábbi $t$ egyenletből és $n$ feltételből álló lineáris egyenletrendszert:
    $$
    \begin{matrix}
-     \sum_{i \in S_1} x_i = Q_1(X_1, Y_1, Z),\\
-      \sum_{i \in S_2} x_i = Q_2(X_2, Y_2, Z), \\
+     \sum_{i \in S_1} x_i = Q_1(X_1, Y_1, Z),\\\\
+      \sum_{i \in S_2} x_i = Q_2(X_2, Y_2, Z), \\\\
       \vdots\\
       \sum_{i \in S_t} x_i = Q_t(X_t, Y_t, Z),
    \end{matrix}
@@ -126,7 +126,7 @@ Lényegében az alábbi optimalizációs problémát kell megoldanunk:
 
 $$
 \begin{matrix}
-\text{Given}\; P^t = (p_1^t, p_2^t, \ldots, p_M^t), \text{minimize}\; \sum_{i=1}^N \sum_{j=1}^M c_{i,j}^t \times Y_{i,j}^t \\
+\text{Given}\; P^t = (p_1^t, p_2^t, \ldots, p_M^t), \text{minimize}\; \sum_{i=1}^N \sum_{j=1}^M c_{i,j}^t \times Y_{i,j}^t \\\\
 \text{subject to}\; Y_{i,j}^t \in \{0,1\}, \sum_{i=1}^N Y_{i,j}^t = p_{j}^t, \sum_{j=1}^N Y_{i,j}^t = 1 
 \end{matrix}
 $$
