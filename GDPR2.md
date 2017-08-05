@@ -1,6 +1,6 @@
-[mathjax]
 # Az aggregált adat és a GDPR
 
+[mathjax]
 Az [előző posztban](http://blog.crysys.hu/2017/07/628/) megnéztük hogyan definiálja a [GDPR](http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&from=HU) a személyes adat fogalmát és mi számít személyes adatnak a gyakorlatban.
 Ebben a posztban egy mérnöki (és talán jogi)  szempontból jóval izgalmasabb kérdést vizsgálunk: *Személyes adatnak minősül-e az aggregált/statisztikai adat?* 
 
