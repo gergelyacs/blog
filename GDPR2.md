@@ -48,9 +48,12 @@ Ismét látható, hogy **a támadó háttértudása** (a *publikus* információ
 Naívan gondolhatnánk, hogy az ilyen támadások megelőzhetők ha nem válaszolunk meg olyan lekérdezéseket, amelyek eredménye túl kicsi (vagyis túl kevés rekordot fednek le). Sajnos ez nem mindig segít; pl. az 1. táblázatban az összes Crohn betegek száma 3 (első lekérdezés), a budapesti Crohn betegek száma 2 (második lekérdezés), akkor a kettő különbsége adja a vidéki Crohn betegek számát amire csak egy rekord illeszkedik (K. Ferenc) és amit így már nem kell lekérdezni (*differencing attack*). Az ilyen "problémás" lekérdezések detekciója nem mindig könnyű; **általános esetben ez egy [eldönthetetlen probléma](https://en.wikipedia.org/wiki/Undecidable_problem).**
 
 
-A következőkben több személyt érintő globális (mass) támadásokra fókuszálunk. Megmutatjuk, hogy **ha elég sok lekérdezést válaszolnak meg, akkor egy támadó képes az eredeti rekordokat visszaállítani a lekérdezések eredményeinek összességéből függetlenül az egyes eredmények nagyságától**. Először ezt egy olyan példán mutatjuk be, ahol a támadó a lekérdezéseket ő maga választja ki. Látni fogjuk, hogy kb. a rekordok számával megegyező lekérdezésekből a rekordok jó része helyreállítható. A második példában a támadó nem interaktív, vagyis nem képes a lekérdezéseket megválasztani, de így is rekonstruálhatja a rekordok több mint 70%-át. 
+A következőkben több személyt érintő globális (mass) támadásokra fókuszálunk, és a fenti differencing támadás ötletét általánosítjuk; megmutatjuk, hogy **ha elég sok lekérdezést válaszolnak meg, akkor egy támadó képes lehet az eredeti rekordokat visszaállítani a lekérdezések összességéből függetlenül az egyes eredmények nagyságától**. 
+Először ezt egy olyan példán mutatjuk be, ahol a támadó a lekérdezéseket ő maga választja ki. Látni fogjuk, hogy kb. a rekordok számával megegyező lekérdezésekből a rekordok jó része helyreállítható. A második példában a támadó nem interaktív, vagyis nem képes a lekérdezéseket megválasztani, de így is rekonstruálhatja a rekordok több mint 70%-át. 
 
 ## Globális támadás 1: Rekordok interaktív helyreállítása
+A támadás alapötlete, hogy minden egyes megválaszolt lekérdezéssel növeljük egy sikeres differencing támadás esélyét valamely rekordra.
+Kicsit pontosabban, minden megválaszolt lekérdezés egy lineáris egyenletet definiál rekordokon mint ismeretleneken. Ha elég sok egyenletünk (megválaszolt lekérdezésünk) van, akkor azok megoldhatóvá válnak és az ismeretlenek (rekordok) meghatározhatók.
 
 Vegyük példaként a 2. és 3. táblázatot, ahol a 2. táblázat a 3. táblázatban szereplő egyének kvázi azonosítóit tartalmazza. A 3. táblázat
 első attribútuma az illető korának felel meg (ugyanaz mint a 2. táblázat 3. oszlopa), a többi attribútumok pedig Budapest főbb helyeit ([POI](https://hu.wikipedia.org/wiki/POI)) reprezentálják, és értékük 1, ha az illető meglátogatta az adott helyet, egyébként nulla. Tegyük fel, hogy a két táblázat rekordjai ugyanahhoz a személyhez tartoznak (vagyis a 3. táblázat $i$-ik sora és 4. táblázat $i$-ik sora ugyanazon személy adatai).  
@@ -67,7 +70,7 @@ első attribútuma az illető korának felel meg (ugyanaz mint a 2. táblázat 3
 
 A 2. táblázathoz hozzáfér a támadó, viszont a 3. táblázathoz nem. Tegyük fel továbbá, hogy a támadó az alábbi $Q([X,Y],Z)$ lekérdezést hajthatja végre: Hány olyan személy van a 3. táblázatban, akiknek kora az $[X, Y]$ intervallumba esik és meglátogatták a $Z$ helyet?
 Vagyis $Q(X,Y)$ azon rekordok számát jelöli, ahol a kor értéke legalább $X$ és legfeljebb $Y$, és $Z$ attribútum/hely értéke 1. Tegyük fel, hogy nem válaszolunk túl kevés rekordot lefedő lekérdezéseket (pl. ha $Q([X,Y],Z) < 5$), az adatbázisban pedig több száz rekord van.
-**A támadó célja a 3. táblázat rekonstruálása a lekérdezések eredményét és a 2. táblázatot felhasználva.** 
+**A támadó célja a 3. táblázat rekonstruálása a lekérdezések eredményeit és a 2. táblázatot felhasználva.** 
 
 
 | Rekord | Kor | Móricz Zsigmond körtér | Allee | Mom Park | ... | Széll Kálmán tér|
@@ -80,7 +83,7 @@ Vagyis $Q(X,Y)$ azon rekordok számát jelöli, ahol a kor értéke legalább $X
 
 3\. táblázat: Helyzeti adatok
 
-Először csak egy oszlopot rekonstruálunk, a többi hasonlóan történik. Legyen $Z$ egy előre kiválasztott hely (pl. $Z$ = "Allee"). A cél a 3. táblázat $Z$ értékének megfelelő oszlopának rekonstruálása, amit $x_1, x_2, \ldots, x_n$ ismeretlenekkel jelölünk és ahol $n$ az összes rekord száma a táblázatban (vagyis $x_i=1$ ha a  támadó szerint az $i$-ik rekord meglátogatta a Z helyet, egyébként $x_i=0$). A  támadás lényegében egy [lineáris programozási](https://en.wikipedia.org/wiki/Linear_programming) feladat megoldása, aminek menete a következő.
+Először csak egy oszlopot rekonstruálunk, a többi hasonlóan történik. Legyen $Z$ egy előre kiválasztott hely (pl. $Z$ = "Allee"). A cél a 3. táblázat $Z$ értékének megfelelő oszlopának rekonstruálása, amit $x_1, x_2, \ldots, x_n$ ismeretlenekkel jelölünk és ahol $n$ az összes rekord száma a táblázatban (vagyis $x_i=1$ ha a  támadó szerint az $i$-ik rekord meglátogatta a Z helyet, egyébként $x_i=0$). A  támadás lényegében egy egyszerű lineáris egyenletrendszer megoldásából áll:
 
 1. Válaszd a kor lehetséges értékeinek egy véletlen intervallumát (pl. $[X=32;Y=40]$)?
 2. Kérdezd a $Q([X,Y],Z)$ értékét 
@@ -127,7 +130,7 @@ Ezt felismerve sok telekom cég monetizálná az ilyen hívási (ún. [CDR](http
 ### A támadás célja
 Adott $n$ előfizető akiknek hívási adataikat rögzítik $m$ toronynál az eredeti CDR adatbázisban. Az egyes tornyokat jelölje $T_1, T_2, \ldots, T_m$. Ebből az adatbázisból a cég minden $t$ időpontban kiszámolja a $\mathbf{P}^t = (p_1^t, p_2^t, \ldots, p_m^t)$ torony-látogatottságokat, ahol $p_j^t$ jelöli az $T_j$ toronynál levő előfizetők számát a $t$-edik időintervallumban/időpontban (pl. egy óra alatt). A cég csakis a $\mathbf{P}^t$-t osztja meg másokkal, bízva abban, hogy az ilyen aggregált adat nem minősül személyes adatnak. 
 
-Legyen $Y_{i,j}^t = 1$, ha az $i$-edik előfizető meglátogatta $T_j$ tornyot a $t$ időtartományban, máskülönben 0. Így $\mathbf{Y}^t$ egy $(n \times m)$ méretű bináris mátrix ami az egyes előfizetők toronylátogatásait reprezentálja $t$ időpontban.  **A támadás célja az $\mathbf{Y}^t$ mátrix rekonstruálása minden $t$-re** úgy, hogy (1) $\sum_{i=1}^n Y_{i,j}^t = p_{j}^t$, vagyis az $\mathbf{Y}^t$ mátrix $j$ oszlopában található elemek összege a $T_j$ tornyot meglátogatott előfizetők száma egy időpontban, valamint (2) $\sum_{j=1}^m Y_{i,j}^t = 1$, vagyis egy előfizető egy időpontban (itt órában) csak egy tornyot látogathat meg. Mivel vannak előfizetők akik nem minden órában használják a telefonjukat, az ilyen órákban a feltételezett toronylátogatásokat interpolációval becsüljük az ismert toronylátogatásokból.
+Legyen $Y_{i,j}^t = 1$, ha az $i$-edik előfizető meglátogatta $T_j$ tornyot a $t$ időtartományban, máskülönben 0. Így $\mathbf{Y}^t$ egy $n \times m$ méretű bináris mátrix ami az egyes előfizetők toronylátogatásait reprezentálja $t$ időpontban.  **A támadás célja az $Y_{i,j}^t$ értékek rekonstruálása minden $i$ előfizetőre, $T_j$ toronyra, és $t$ időpontra** úgy, hogy (1) $\sum_{i=1}^n Y_{i,j}^t = p_{j}^t$, vagyis az $\mathbf{Y}^t$ mátrix $j$ oszlopában található elemek összege a $T_j$ tornyot meglátogatott előfizetők száma egy időpontban, valamint (2) $\sum_{j=1}^m Y_{i,j}^t = 1$, vagyis egy előfizető egy időpontban (itt órában) csak egy tornyot látogathat meg. Mivel vannak előfizetők akik nem minden órában használják a telefonjukat, az ilyen órákban a feltételezett toronylátogatásokat interpolációval becsüljük az ismert toronylátogatásokból.
 
 ### A támadás alapötlete és menete
 
