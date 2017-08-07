@@ -137,10 +137,10 @@ Ugyan a támadás első hallásra meghökkentő, az adat jellegét megnézve má
 
 3. *Egyediség:* Az előfizetők egymástól elég különböző tornyokat látogatnak meg, amit már több tanulmány szemléltetett; egy több milliós populációban egy előfizető bármely 4 meglátogatott tornya (az időpont órás pontosságával) egyedivé teszi őt az előfizetők között az esetek 98%-ában.     
 
-A három tulajdonságot szemlélteti az alábbi ábra, ahol 5 különböző előfizető térbeli helyzete látható 2 egymást követő nap.
+A három tulajdonságot szemlélteti az alábbi ábra, ahol 5 különböző előfizető térbeli helyzete látható két egymást követő nap.
 
 
-![alt text](figs/records.png) 
+![alt text](http://blog.crysys.hu/wp-content/uploads/2017/08/records.png) 
 
 A támadás először a rekordok szeparálhatóságát felhasználva rekonstruálja a rekordokat (azaz az $\mathbf{Y}^t$ mátrixot) minden $t$-re egy napon belül, feltéve, hogy $\mathbf{P}^t$ ismert. 
 Ezt megismétli minden egyes napra külön-külön. Végül a rekordok regularitását és egyediségét felhasználva az azonos előfizetőhöz tartozó rekonstruált rekordokat összerendeli a napok között.
@@ -169,7 +169,7 @@ Egész pontosan a magyar algoritmus olyan esetekben működik, ahol egy bal olda
 
 Eredeti gráf             |  Átalakított gráf
 :-------------------------:|:-------------------------:
-![alt text](figs/graph1.png) | ![alt text](figs/graph2.png)
+![alt text](http://blog.crysys.hu/wp-content/uploads/2017/08/graph1.png) | ![alt text](http://blog.crysys.hu/wp-content/uploads/2017/08/graph2.png)
 
 
 
@@ -198,7 +198,7 @@ Miután két egymást követő nap rekonstruáltuk az összes rekordot (ezeket a
 
 A szerzők kipróbálták a fenti támadást két adatbázison. Az első (Operator) 100 000 előfizető CDR adatát tartalmazta, vagyis minden előfizetőhöz rögzítették az időpontot és tornyot amikor az illető a mobilhálózatot használta 1 hetes időtartományban. A második (App) adatbázis 15 000 felhasználó tornyát rögzítette 2 hetes időtartományban, amikor azok elindítottak egy adott alkalmazást. Mindkét adatbázis ugyanabból a városból származik, amely 8000 toronnyal van lefedve. Mindkét esetben kiszámolták, hogy csakis $\mathbf{P}^t$-t felhasználva, átlagosan egy előfizető hány torony-látogatását tudják helyesen rekonstruálni (vagyis a látogatás tornyát *és* idejét). Az eredményt az alábbi ábra mutatja.
 
-![alt text](figs/result.png) 
+![alt text](http://blog.crysys.hu/wp-content/uploads/2017/08/result.png) 
 
 Stage1/Stage2 jelenti az éjszakai időtartománynak megfelelő rekordrészek átlagos rekonstrukciós pontosságát, míg Stage3 az egész támadás átlagos pontosságát a rekordrészek összefűzése után. Látható, hogy átlagosan egy rekord 91%-át sikeresen rekonstruálták az App adatbázisból számolt statisztikai adatból, míg ez az érték 73% az Operator adatbázis esetén. 
 
