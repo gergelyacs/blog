@@ -1,6 +1,6 @@
 # Az aggregált adat és a GDPR
 
-Az [előző posztban](http://blog.crysys.hu/2017/07/628/) megnéztük hogyan definiálja a [GDPR](http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&from=HU) a személyes adat fogalmát és mi számít személyes adatnak a gyakorlatban.
+Az [előző posztban](http://blog.crysys.hu/2017/07/628/) megnéztük hogyan definiálja a [GDPR](http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&from=HU) a személyes adat fogalmát és mi számít személyes adatnak a definíció szerint.
 Ebben a posztban egy mérnöki (és talán jogi)  szempontból jóval izgalmasabb kérdést vizsgálunk: *Személyes adatnak minősülhet-e az aggregált/statisztikai adat?* 
 
 A probléma azért érdekes, mert a legtöbb cég/kormány/szervezet többnyire aggregált adatokat oszt meg, bízva abban, hogy ezek nem személyes adatok. Valóban, a GDPR így nyilatkozik a statisztikai adatról ([26. preambulum](https://www.privacy-regulation.eu/hu/r26.htm)): _"[...] Az adatvédelem elveit [...] az anonim információkra nem kell alkalmazni, nevezetesen olyan információkra, amelyek nem azonosított vagy azonosítható természetes személyre vonatkoznak, valamint az olyan személyes adatokra, amelyeket olyan módon anonimizáltak, amelynek következtében az érintett nem vagy többé nem azonosítható. Ez a rendelet ezért nem vonatkozik az ilyen anonim információk kezelésére, a statisztikai vagy kutatási célú adatkezelést is ideértve."_
@@ -53,7 +53,7 @@ Először ezt egy olyan példán mutatjuk be, ahol a támadó a lekérdezéseket
 
 ## Globális támadás 1: Rekordok interaktív helyreállítása
 A támadás alapötlete, hogy minden egyes megválaszolt lekérdezéssel növeljük egy sikeres differencing támadás esélyét valamely rekordra.
-Kicsit pontosabban, minden megválaszolt lekérdezés egy lineáris egyenletet definiál rekordokon mint ismeretleneken. Ha elég sok egyenletünk (megválaszolt lekérdezésünk) van, akkor azok megoldhatóvá válnak és az ismeretlenek (rekordok) meghatározhatók.
+Kicsit pontosabban, minden megválaszolt lekérdezés egy lineáris egyenletet definiál a rekordokon mint ismeretleneken. Ha elég sok egyenletünk (megválaszolt lekérdezésünk) van, akkor azok megoldhatóvá válnak és az ismeretlenek (rekordok) meghatározhatók.
 
 Vegyük példaként a 2. és 3. táblázatot, ahol a 2. táblázat a 3. táblázatban szereplő egyének kvázi azonosítóit tartalmazza. A 3. táblázat
 első attribútuma az illető korának felel meg (ugyanaz mint a 2. táblázat 3. oszlopa), a többi attribútumok pedig Budapest főbb helyeit ([POI](https://hu.wikipedia.org/wiki/POI)) reprezentálják, és értékük 1, ha az illető meglátogatta az adott helyet, egyébként nulla. Tegyük fel, hogy a két táblázat rekordjai ugyanahhoz a személyhez tartoznak (vagyis a 3. táblázat $i$-ik sora és 4. táblázat $i$-ik sora ugyanazon személy adatai).  
@@ -69,7 +69,7 @@ első attribútuma az illető korának felel meg (ugyanaz mint a 2. táblázat 3
 2\. táblázat: Demográfiai adatok (kvázi azonosítók)
 
 A 2. táblázathoz hozzáfér a támadó, viszont a 3. táblázathoz nem. Tegyük fel továbbá, hogy a támadó az alábbi $Q([X,Y],Z)$ lekérdezést hajthatja végre: Hány olyan személy van a 3. táblázatban, akiknek kora az $[X, Y]$ intervallumba esik és meglátogatták a $Z$ helyet?
-Vagyis $Q(X,Y)$ azon rekordok számát jelöli, ahol a kor értéke legalább $X$ és legfeljebb $Y$, és $Z$ attribútum/hely értéke 1. Tegyük fel, hogy nem válaszolunk túl kevés rekordot lefedő lekérdezéseket (pl. ha $Q([X,Y],Z) < 5$), az adatbázisban pedig több száz rekord van.
+Vagyis $Q(X,Y)$ azon rekordok számát jelöli, ahol a kor értéke legalább $X$ és legfeljebb $Y$, és $Z$ attribútum/hely értéke 1. Tegyük fel, hogy nem válaszolunk meg túl kevés rekordot lefedő lekérdezéseket (pl. ha $Q([X,Y],Z) < 5$), az adatbázisban pedig több száz rekord van.
 **A támadó célja a 3. táblázat rekonstruálása a lekérdezések eredményeit és a 2. táblázatot felhasználva.** 
 
 
@@ -113,7 +113,7 @@ Megjegyzések:
 1. A 4. lépésben megoldandó egyenletrendszer azért lineáris, mert a lekérdezések (subset-sum query) az attribútum-értékek lineáris függvénye (jelen esetben összege). Az egyenletrendszer [bármely LP solver-rel megoldható](https://en.wikipedia.org/wiki/Linear_programming#Solvers_and_scripting_.28programming.29_languages) (pl. CPLEX, glpk, stb.). 
 2. Az eredeti adatbázis visszaállíthatósága $t= n \log^2 n$ lekérdezés esetén garantált, ahol minden lekérdezés minden rekordot 1/2 eséllyel tartalmaz. Ez a fenti példában nem feltétlen igaz, hiszen ott a kor alapján választunk egyenletes eloszlás szerint nem pedig magukat a rekordokat 1/2 valószínűséggel (ebből az is következik, hogy a fenti támadás nem adaptív). Ennek ellenére a gyakorlatban a támadás jó eséllyel működik.
 3. A megoldandó egyenletrendszer $n$ változót és $t= n \log^2 n$ egyenletet/feltételt tartalmaz. [Létezik olyan támadás](https://www.microsoft.com/en-us/research/wp-content/uploads/2008/08/dy08.pdf), ami $t= n$ lekérdezéssel hasonló rekonstrukciós pontosságot ér el, viszont itt a lekérdezéseket determinisztikusan és nem véletlenszerűen választják. 
-4. Ezek **a támadások akkor is működhetnek, ha a [lekérdezések értékéhez véletlen zajt adunk hozzá](http://www.cse.psu.edu/~ads22/privacy598/papers/dn03.pdf) (query perturbation).** Ebben az esetben egyenletek helyett egyenlőtlenségek rendszerét kell megoldani,  aminek  megoldása az első támadással a legrosszabb esetben $O(n^5 \log^4 n)$ lépést, míg a másodikkal csak $O(n\log n)$ lépést igényel. Ha a zaj által okozott abszolút hiba legfeljebb $E$, akkor $n - 4E^2$ rekord [helyreállítható]((https://www.microsoft.com/en-us/research/wp-content/uploads/2008/08/dy08.pdf)). Pl. ha $n=256$ és $E=3$, akkor 220 rekord helyreállítható. Viszont érdekes módon **$E > \sqrt{n}$ torzítás már megakadályozza a rekordok visszaállítását**.
+4. Ezek **a támadások akkor is működhetnek, ha a [lekérdezések értékéhez véletlen zajt adunk hozzá](http://www.cse.psu.edu/~ads22/privacy598/papers/dn03.pdf) (query perturbation).** Ebben az esetben egyenletek helyett egyenlőtlenségek rendszerét kell megoldani,  aminek  megoldása az első támadással a legrosszabb esetben $O(n^5 \log^4 n)$ lépést, míg a másodikkal csak $O(n\log n)$ lépést igényel. Ha a zaj által okozott abszolút hiba legfeljebb $E$, akkor $n - 4E^2$ rekord [helyreállítható]((https://www.microsoft.com/en-us/research/wp-content/uploads/2008/08/dy08.pdf)). Pl. ha $n=256$ és $E=3$, akkor 220 rekord helyreállítható. Viszont érdekes módon **$E > \sqrt{n}$ torzítás már megakadályozhatja a rekordok visszaállítását**.
 
 
 ## Globális támadás 2: Telekom (CDR) adatok nem interaktív helyreállítása  
@@ -201,14 +201,14 @@ Miután két egymást követő nap rekonstruáltuk az összes rekordot (ezeket a
 
 ### Eredmények
 
-A szerzők kipróbálták a fenti támadást két adatbázison. Az első (Operator) 100 000 előfizető CDR adatát tartalmazta, vagyis minden előfizetőhöz rögzítették az időpontot és tornyot amikor az illető a mobilhálózatot használta 1 hetes időtartományban. A második (App) adatbázis 15 000 felhasználó tornyát rögzítette 2 hetes időtartományban, amikor azok elindítottak egy adott alkalmazást. Mindkét adatbázis ugyanabból a városból származik, amely 8000 toronnyal van lefedve. Mindkét esetben kiszámolták, hogy csakis $\mathbf{P}^t$-t felhasználva, átlagosan egy előfizető hány torony-látogatását tudják helyesen rekonstruálni (vagyis a látogatás tornyát *és* idejét). Az eredményt az alábbi ábra mutatja.
+A szerzők kipróbálták a fenti támadást két adatbázison. Az első (Operator) 100 000 előfizető CDR adatát tartalmazta, vagyis minden előfizetőhöz rögzítették az időpontot és tornyot amikor az illető a mobilhálózatot használta 1 hetes időtartományban. A második (App) adatbázis 15 000 felhasználó tornyát rögzítette 2 hetes időtartományban, amikor azok elindítottak egy adott alkalmazást. Mindkét adatbázis ugyanabból a városból származik, amely 8000 toronnyal van lefedve. Mindkét esetben kiszámolták, hogy csakis $\mathbf{P}^t$-t felhasználva átlagosan egy előfizető hány torony-látogatását tudják helyesen rekonstruálni (vagyis a látogatás tornyát *és* idejét). Az eredményt az alábbi ábra mutatja.
 
 ![alt text](http://blog.crysys.hu/wp-content/uploads/2017/08/result.png) 
 
 Stage1/Stage2 jelenti az éjszakai időtartománynak megfelelő rekordrészek átlagos rekonstrukciós pontosságát, míg Stage3 az egész támadás átlagos pontosságát a rekordrészek összefűzése után. Látható, hogy átlagosan egy rekord 91%-át sikeresen rekonstruálták az App adatbázisból számolt statisztikai adatból, míg ez az érték 73% az Operator adatbázis esetén. 
 
 Mivel a rekonstrukciós pontosság magas és [4-5 rekonstruált toronylátogatás](https://www.nature.com/articles/srep01376) már 95%-os eséllyel egyedi egy előfizetőre nézve akár egy több milliós populációban, ezért **a támadás sikervalószínűsége nagy**. Sőt,
-az előfizetők azonosításához szükséges 4-5 torony meghatározása könnyű publikus Facebook/Instagram/Twitter profilokat felhasználva. Mivel más háttérinformáció nem szükséges az előfizetőkről, **a támadás plauzibilis is, vagyis az egyes tornyok látogatottsága az idő függvényében ($\mathbf{P}^t$) jó eséllyel személyes adatnak minősül a GDPR [4. cikk](https://www.privacy-regulation.eu/hu/4.htm) szerint is**.   
+az előfizetők azonosításához szükséges 4-5 torony meghatározása könnyű publikus Facebook/Instagram/Twitter profilokat felhasználva. Mivel más háttérinformáció nem szükséges az előfizetőkről, **a támadás plauzibilis is, vagyis az egyes tornyok látogatottsága az idő függvényében ($\mathbf{P}^t$) jó eséllyel személyes adatnak minősül a GDPR [4. cikke](https://www.privacy-regulation.eu/hu/4.htm) szerint is**.   
 
 # Konklúzió
 
