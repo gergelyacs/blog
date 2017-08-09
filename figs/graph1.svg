@@ -3,182 +3,190 @@
     xmlns:latexdraw="http://latexdraw.sourceforge.net/namespaces/latexdraw"
     version="1.1" baseProfile="full">
     <g>
-        <g latexdraw:type="drawing" id="id1169977319">
-            <g latexdraw:type="bezierCurve" id="id1614848750">
+        <g latexdraw:type="drawing" id="id1765431007">
+            <g latexdraw:type="bezierCurve" id="id1136911314">
                 <path
                     d="M 242.5182770574143 305.7453227282258 C 271.48437280788687 307.4415993200911 242.38266545657024 546.3162550999441 269.3668223089185 520.0042116750501 "
                     stroke-width="1.5" stroke="black" fill="none" latexdraw:rotationAngle="0.0"/>
             </g>
-            <g latexdraw:type="bezierCurve" id="id477342988">
+            <g latexdraw:type="bezierCurve" id="id1171192266">
                 <path
                     d="M 242.51720924953366 307.63958203824143 C 272.49296083723516 290.19048076394097 242.6592276976616 55.70309380644295 268.61771059559214 76.9503181006994 "
                     stroke-width="1.5" stroke="black" fill="none" latexdraw:rotationAngle="0.0"/>
             </g>
         </g>
-        <g latexdraw:type="text" id="id536799067" fill="black" latexdraw:position="bl">
+        <g latexdraw:type="text" id="id847590128" fill="black" latexdraw:position="bl">
             <text x="300.0" y="420.0">\Huge $\vdots$</text>
         </g>
-        <g latexdraw:type="circle" id="id958099476">
+        <g latexdraw:type="circle" id="id154273489">
             <circle cx="300.0" cy="500.0" r="19.0"
                 latexdraw:borderPos="outer" stroke-width="2.0"
                 stroke="black" fill="none"/>
         </g>
-        <g latexdraw:type="circle" id="id1837324276">
+        <g latexdraw:type="circle" id="id1030764708">
             <circle cx="300.0" cy="300.0" r="19.0"
                 latexdraw:borderPos="outer" stroke-width="2.0"
                 stroke="black" fill="none"/>
         </g>
-        <g latexdraw:type="circle" id="id1742142033">
+        <g latexdraw:type="circle" id="id1071907272">
             <circle cx="300.0" cy="200.0" r="19.0"
                 latexdraw:borderPos="outer" stroke-width="2.0"
                 stroke="black" fill="none"/>
         </g>
-        <g latexdraw:type="circle" id="id2021008684">
+        <g latexdraw:type="circle" id="id1102515958">
             <circle cx="300.0" cy="100.0" r="19.0"
                 latexdraw:borderPos="outer" stroke-width="2.0"
                 stroke="black" fill="none"/>
         </g>
-        <g latexdraw:type="text" id="id811580797" fill="black" latexdraw:position="bl">
-            <text x="148.33333333333331" y="309.76190476190476">$n$ el{\H o}fizet{\H o}</text>
+        <g latexdraw:type="text" id="id1023049497" fill="black" latexdraw:position="bl">
+            <text x="138.33333333333331" y="339.76190476190476">\LARGE 
+\begin{tabular}{cc}
+$n$ &amp; \\ 
+el{\H o}fizet{\H o} &amp;
+\end{tabular}</text>
         </g>
-        <g latexdraw:type="text" id="id1011441328" fill="black"
+        <g latexdraw:type="text" id="id471261251" fill="black"
             latexdraw:position="bl" transform="rotate(1.0787758842278643) translate(7.8145554871722425 -10.575935492978147)">
-            <text x="557.7835941976797" y="420.3211804904106">\Huge $\vdots$</text>
+            <text x="557.7835941976796" y="420.3211804904106">\Huge $\vdots$</text>
         </g>
-        <g latexdraw:type="circle" id="id182389455" transform="rotate(1.0787758842278643) translate(9.320730204063125 -10.56268090227104)">
-            <circle cx="556.3265518447582" cy="500.30791081226926"
+        <g latexdraw:type="circle" id="id2004033832" transform="rotate(1.0787758842278643) translate(9.320730204063125 -10.56268090227104)">
+            <circle cx="556.3265518447581" cy="500.30791081226926"
                 r="18.999999999999773" latexdraw:borderPos="outer"
                 stroke-width="2.0" stroke="black" fill="none"/>
         </g>
-        <g latexdraw:type="circle" id="id1943235086">
+        <g latexdraw:type="circle" id="id1169558211">
             <circle cx="560.0" cy="300.0" r="19.0"
                 latexdraw:borderPos="outer" stroke-width="2.0"
                 stroke="black" fill="none"/>
         </g>
-        <g latexdraw:type="circle" id="id2011360532">
+        <g latexdraw:type="circle" id="id1964118">
             <circle cx="560.0" cy="200.0" r="19.0"
                 latexdraw:borderPos="outer" stroke-width="2.0"
                 stroke="black" fill="none"/>
         </g>
-        <g latexdraw:type="circle" id="id1871352758">
+        <g latexdraw:type="circle" id="id422154417">
             <circle cx="560.0" cy="100.0" r="19.0"
                 latexdraw:borderPos="outer" stroke-width="2.0"
                 stroke="black" fill="none"/>
         </g>
-        <g latexdraw:type="text" id="id1295577979" fill="black" latexdraw:position="bl">
-            <text x="590.0" y="105.23809523809524">\large $T_1$</text>
+        <g latexdraw:type="text" id="id1485565068" fill="black" latexdraw:position="bl">
+            <text x="590.0" y="105.23809523809524">\LARGE $T_1$</text>
         </g>
-        <g latexdraw:type="text" id="id589503417" fill="black" latexdraw:position="bl">
-            <text x="590.0" y="205.23809523809524">\large $T_2$</text>
+        <g latexdraw:type="text" id="id177529228" fill="black" latexdraw:position="bl">
+            <text x="590.0" y="205.23809523809524">\LARGE $T_2$</text>
         </g>
-        <g latexdraw:type="text" id="id1249498578" fill="black" latexdraw:position="bl">
-            <text x="590.0" y="305.23809523809524">\large $T_3$</text>
+        <g latexdraw:type="text" id="id1631689869" fill="black" latexdraw:position="bl">
+            <text x="590.0" y="305.23809523809524">\LARGE $T_3$</text>
         </g>
-        <g latexdraw:type="text" id="id562725489" fill="black" latexdraw:position="bl">
-            <text x="590.0" y="525.2380952380952">\large $T_m$</text>
+        <g latexdraw:type="text" id="id1400934057" fill="black" latexdraw:position="bl">
+            <text x="585.0" y="525.2380952380952">\LARGE $T_m$</text>
         </g>
-        <g latexdraw:type="joinedLines" id="id1664417629">
+        <g latexdraw:type="joinedLines" id="id2056918178">
             <polyline
                 points="318.8095238095238,100.23809523809524 540.0,100.0 "
                 stroke-width="2.0" stroke="black" stroke-linecap="round"
                 stroke-dasharray="1, 7.291666666666667" latexdraw:rotationAngle="0.0"/>
         </g>
-        <g latexdraw:type="joinedLines" id="id3009726">
+        <g latexdraw:type="joinedLines" id="id1173759640">
             <polyline points="320.0,300.0 540.0,205.0 "
                 stroke-width="2.0" stroke="black" stroke-linecap="round"
                 stroke-dasharray="1, 7.291666666666667" latexdraw:rotationAngle="0.0"/>
         </g>
-        <g latexdraw:type="joinedLines" id="id835430450">
+        <g latexdraw:type="joinedLines" id="id943793317">
             <polyline points="320.0,100.0 540.0,200.0 "
                 stroke-width="2.0" stroke="black" stroke-linecap="round"
                 stroke-dasharray="1, 7.291666666666667" latexdraw:rotationAngle="0.0"/>
         </g>
-        <g latexdraw:type="joinedLines" id="id47848619">
+        <g latexdraw:type="joinedLines" id="id1232342265">
             <polyline
                 points="318.8095238095238,200.23809523809524 540.0,200.0 "
                 stroke-width="2.0" stroke="black" stroke-linecap="round"
                 stroke-dasharray="1, 7.291666666666667" latexdraw:rotationAngle="0.0"/>
         </g>
-        <g latexdraw:type="joinedLines" id="id276652486">
+        <g latexdraw:type="joinedLines" id="id1252858141">
             <polyline points="320.0,200.0 540.0,100.0 "
                 stroke-width="2.0" stroke="black" stroke-linecap="round"
                 stroke-dasharray="1, 7.291666666666667" latexdraw:rotationAngle="0.0"/>
         </g>
-        <g latexdraw:type="joinedLines" id="id1170681600">
+        <g latexdraw:type="joinedLines" id="id264283994">
             <polyline points="320.0,200.0 540.0,300.0 "
                 stroke-width="2.0" stroke="black" stroke-linecap="round"
                 stroke-dasharray="1, 7.291666666666667" latexdraw:rotationAngle="0.0"/>
         </g>
-        <g latexdraw:type="joinedLines" id="id479478967">
+        <g latexdraw:type="joinedLines" id="id355536077">
             <polyline
                 points="318.8095238095238,300.23809523809524 540.0,300.0 "
                 stroke-width="2.0" stroke="black" stroke-linecap="round"
                 stroke-dasharray="1, 7.291666666666667" latexdraw:rotationAngle="0.0"/>
         </g>
-        <g latexdraw:type="joinedLines" id="id629719231">
+        <g latexdraw:type="joinedLines" id="id715895937">
             <polyline
                 points="318.8095238095238,500.23809523809524 540.0,500.0 "
                 stroke-width="2.0" stroke="black" stroke-linecap="round"
                 stroke-dasharray="1, 7.291666666666667" latexdraw:rotationAngle="0.0"/>
         </g>
-        <g latexdraw:type="joinedLines" id="id533308892">
+        <g latexdraw:type="joinedLines" id="id887255537">
             <polyline points="320.0,100.0 540.0,300.0 "
                 stroke-width="2.0" stroke="black" stroke-linecap="round"
                 stroke-dasharray="1, 7.291666666666667" latexdraw:rotationAngle="0.0"/>
         </g>
-        <g latexdraw:type="text" id="id1770470878" fill="black" latexdraw:position="bl">
-            <text x="430.0" y="100.0">$c_{1,1}^t$</text>
+        <g latexdraw:type="text" id="id1370346959" fill="black" latexdraw:position="bl">
+            <text x="430.0" y="100.0">\Large $c_{1,1}^t$</text>
         </g>
-        <g latexdraw:type="text" id="id1108020949" fill="black" latexdraw:position="bl">
-            <text x="330.0" y="180.0">$c_{2,1}^t$</text>
+        <g latexdraw:type="text" id="id1431302749" fill="black" latexdraw:position="bl">
+            <text x="330.0" y="180.0">\Large $c_{2,1}^t$</text>
         </g>
-        <g latexdraw:type="text" id="id2109977766" fill="black" latexdraw:position="bl">
-            <text x="510.0" y="180.0">$c_{1,2}^t$</text>
+        <g latexdraw:type="text" id="id2068168456" fill="black" latexdraw:position="bl">
+            <text x="505.0" y="185.0">\Large $c_{1,2}^t$</text>
         </g>
-        <g latexdraw:type="text" id="id1219129721" fill="black" latexdraw:position="bl">
-            <text x="470.0" y="200.0">$c_{2,2}^t$</text>
+        <g latexdraw:type="text" id="id499548920" fill="black" latexdraw:position="bl">
+            <text x="465.0" y="200.0">\Large $c_{2,2}^t$</text>
         </g>
-        <g latexdraw:type="text" id="id1426299681" fill="black" latexdraw:position="bl">
-            <text x="490.0" y="260.0">$c_{1,3}^t$</text>
+        <g latexdraw:type="text" id="id1192711772" fill="black" latexdraw:position="bl">
+            <text x="515.0" y="280.0">\Large $c_{1,3}^t$</text>
         </g>
-        <g latexdraw:type="text" id="id1900639076" fill="black" latexdraw:position="bl">
-            <text x="330.0" y="240.0">$c_{2,3}^t$</text>
+        <g latexdraw:type="text" id="id1408889366" fill="black" latexdraw:position="bl">
+            <text x="325.0" y="245.0">\Large $c_{2,3}^t$</text>
         </g>
-        <g latexdraw:type="text" id="id641508942" fill="black" latexdraw:position="bl">
-            <text x="430.0" y="300.0">$c_{3,3}^t$</text>
+        <g latexdraw:type="text" id="id1603830265" fill="black" latexdraw:position="bl">
+            <text x="430.0" y="300.0">\Large $c_{3,3}^t$</text>
         </g>
-        <g latexdraw:type="text" id="id1768278803" fill="black" latexdraw:position="bl">
-            <text x="510.0" y="240.0">$c_{3,2}^t$</text>
+        <g latexdraw:type="text" id="id854219903" fill="black" latexdraw:position="bl">
+            <text x="515.0" y="245.0">\Large $c_{3,2}^t$</text>
         </g>
-        <g latexdraw:type="text" id="id981959853" fill="black" latexdraw:position="bl">
-            <text x="410.0" y="500.0">$c_{n,m}^t$</text>
+        <g latexdraw:type="text" id="id263371280" fill="black" latexdraw:position="bl">
+            <text x="410.0" y="500.0">\Large $c_{n,m}^t$</text>
         </g>
-        <g latexdraw:type="text" id="id1154157302" fill="black"
+        <g latexdraw:type="text" id="id973518650" fill="black"
             latexdraw:position="bl" transform="rotate(1.0787758842278643) translate(7.835824905565801 -8.316686054273305)">
             <text x="437.7835941976798" y="420.3211804904106">\Huge $\vdots$</text>
         </g>
-        <g latexdraw:type="joinedLines" id="id1865606096">
+        <g latexdraw:type="joinedLines" id="id1575907603">
             <polyline points="320.0,300.0 540.0,105.0 "
                 stroke-width="2.0" stroke="black" stroke-linecap="round"
                 stroke-dasharray="1, 7.291666666666667" latexdraw:rotationAngle="0.0"/>
         </g>
-        <g latexdraw:type="text" id="id2106188940" fill="black" latexdraw:position="bl">
-            <text x="530.0" y="140.0">$c_{3,1}^t$</text>
+        <g latexdraw:type="text" id="id1793486172" fill="black" latexdraw:position="bl">
+            <text x="525.0" y="145.0">\Large $c_{3,1}^t$</text>
         </g>
-        <g latexdraw:type="drawing" id="id90027150">
-            <g latexdraw:type="bezierCurve" id="id689399000">
+        <g latexdraw:type="drawing" id="id1152315386">
+            <g latexdraw:type="bezierCurve" id="id1231133256">
                 <path
                     d="M 649.3331208787301 291.1492549086127 C 620.3597297429824 289.58251836514097 648.3930082923163 50.58012122552947 621.5267765968943 77.01256236730634 "
                     stroke-width="1.5" stroke="black" fill="none" latexdraw:rotationAngle="0.0"/>
             </g>
-            <g latexdraw:type="bezierCurve" id="id603454791">
+            <g latexdraw:type="bezierCurve" id="id166767557">
                 <path
                     d="M 649.3257184174203 289.2550097614989 C 619.4282908839574 306.8379743980358 650.310245771697 541.1896143272468 624.2570145523974 520.0586768751052 "
                     stroke-width="1.5" stroke="black" fill="none" latexdraw:rotationAngle="0.0"/>
             </g>
         </g>
-        <g latexdraw:type="text" id="id1155181839" fill="black" latexdraw:position="bl">
-            <text x="658.3333333333333" y="299.76190476190476">$m$ torony</text>
+        <g latexdraw:type="text" id="id1708791400" fill="black" latexdraw:position="bl">
+            <text x="653.3333333333333" y="329.76190476190476">\LARGE 
+\begin{tabular}{cc}
+$m$ &amp; \\ 
+torony &amp;
+\end{tabular}</text>
         </g>
     </g>
     <defs/>
