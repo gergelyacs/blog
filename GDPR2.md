@@ -51,7 +51,7 @@ mivel általános esetben két lekérdezés ekvivalenciája [eldönthetetlen](ht
 
 
 A következőkben több személyt érintő globális (mass) támadásokra fókuszálunk, és a fenti differencing támadás ötletét általánosítjuk; megmutatjuk, hogy **ha elég sok lekérdezést válaszolnak meg, akkor egy támadó képes lehet az eredeti rekordokat visszaállítani a lekérdezések összességéből függetlenül az egyes eredmények nagyságától**. 
-Először ezt egy olyan példán mutatjuk be, ahol a támadó a lekérdezéseket ő maga választja. Látni fogjuk, hogy kb. a rekordok számával megegyező lekérdezésekből a rekordok jó része helyreállítható. A második példában a támadó nem interaktív, vagyis nem képes a lekérdezéseket megválasztani, de így is rekonstruálhatja a rekordok több mint 70%-át. 
+Először ezt egy olyan példán mutatjuk be, ahol a támadó a lekérdezéseket ő maga választja. Látni fogjuk, hogy kb. a rekordok számával megegyező lekérdezésekből a rekordok jó része helyreállítható. A második példában a támadó nem interaktív, vagyis nem képes a lekérdezéseket megválasztani, de így is rekonstruálhatja a rekordok több mint 70%-át az adat jellemzőit (mint háttértudást) kihasználva. 
 
 ## Globális támadás 1: Rekordok interaktív helyreállítása
 A támadás alapötlete, hogy minden egyes megválaszolt lekérdezéssel növeljük egy sikeres differencing támadás esélyét valamely rekordra.
