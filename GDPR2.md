@@ -28,7 +28,7 @@ Az ilyen eloszlásokból pedig további statisztikák számolhatók; átlagok, s
 1\. táblázat: Kórházi adatok
 
 
-A számláló lekérdezések univerzalitása miatt a cégek többsége általában csak számláló lekérdezések eredményeit osztja meg (mint aggregált adatot), amit aztán további statisztikai adatok számításához felhasználhatnak a kérdezők. Ezért a továbbiakban csak ilyen lekérdezésekre fókuszálunk, és **aggregált (statisztikai) adat alatt számláló lekérdezések eredményeinek összességét értjük**. 
+A számláló lekérdezések univerzalitása miatt általában elég ha csak számláló lekérdezések eredményeit osztják meg (mint aggregált adatot), amit aztán további statisztikai adatok számításához felhasználhatnak a kérdezők. Ezért a továbbiakban csak ilyen lekérdezésekre fókuszálunk, és **aggregált (statisztikai) adat alatt számláló lekérdezések eredményeinek összességét értjük**. 
 
 FONTOS: A vizsgálat célja csakis az aggregált adat, nem az adatbázis amin az aggregátumot számoljuk. Más szavakkal a kérdés, hogy **személyes adatnak minősülhetnek-e az aggregátumok (bizonyos mintára illeszkedő rekordok száma) egy olyan támadó számára, aki nem fér hozzá az adatbázishoz?**
 
@@ -44,6 +44,7 @@ Van amikor a cég megengedi, hogy a kérdezők (támadók) specifikálják a lek
 Tekintsük Zsuzsa nénit az [előző posztból](http://blog.crysys.hu/2017/07/628/), aki a Facebookon talál egy K. Ferenc nevű felhasználót. K. Ferenc megosztott képei alapján egy kis községben lakik aminek az irányítószámát is megadta (8423), a 20-as éveiben jár, és krónikus bőrkiütésben szenved (a pontos betegségét ez alapján még nem ismeri).  Zsuzsa néni ugyan az 1. táblázathoz nem fér hozzá, de jogosult az alábbi lekérdezéshez: Hány olyan beteg van aki az $X$ irányítószám alatt lakik és a betegsége $Y$? Ezután lefuttatja az összes olyan kérést, ahol $X=8423$ és $Y$ pedig egy olyan betegség, aminek tünete a krónikus bőrkiütés. Ha csak egy ilyen lekérdezés értéke 1 a többié pedig 0, akkor Zsuzsa néni megtalálta K. Ferenc pontos betegségét (erre jó esély van ha K. Ferenc vidéki, és a községben ahol él más nem volt a kórházban krónikus bőrkiütéssel).
 
 Ismét látható, hogy **a támadó háttértudása** (a *publikus* információ, hogy egy fiatal K. Ferenc krónikus bőrkiütésben szenved és egy ismert községben lakik) **lehetővé teheti személyes adatok visszafejtését aggregált adatokból**. Ahogyan azt az előző posztban is megmutattuk, manapság a legtöbb emberről rengeteg nyilvános adat elérhető maguk vagy mások által. Így a hasonló támadások létezését lehetetlen kizárni. Például előfordulhat, hogy Zsuzsa néni nemcsak bőrkiütést hanem egyéb más tünetet is megfigyel K. Ferencről a képei alapján, így a szóba jöhető betegségek száma kevesebb, vagyis még kevesebb lekérdezésből még nagyobb eséllyel kiderítheti K. Ferenc pontos betegségét. 
+Például videón szereplő személyek [pulzusa megállapítható](https://people.csail.mit.edu/mrub/papers/vidmag.pdf) pusztán a videóból az illetők tudta nélkül.
 
 Naívan gondolhatnánk, hogy az ilyen támadások megelőzhetők ha nem válaszolunk meg olyan lekérdezéseket, amelyek eredménye túl kicsi (vagyis túl kevés rekordot fednek le). Sajnos ez nem mindig segít; pl. az 1. táblázatban az összes Crohn betegek száma 3 (első lekérdezés), a budapesti Crohn betegek száma 2 (második lekérdezés), akkor a kettő különbsége adja a vidéki Crohn betegek számát amire csak egy rekord illeszkedik (K. Ferenc) és amit így már nem kell lekérdezni (*differencing attack*). Az ilyen "problémás" lekérdezések detekciója nem mindig könnyű, 
 mivel általános esetben két lekérdezés ekvivalenciája [eldönthetetlen](https://link.springer.com/chapter/10.1007%2F978-1-4615-9385-0_13).
@@ -137,7 +138,7 @@ Legyen $Y_{i,j}^t = 1$, ha az $i$-edik előfizető meglátogatta $T_j$ tornyot a
 
 Ugyan a támadás első hallásra meghökkentő, az adat jellegét megnézve már nem tűnik olyan hihetetlennek. Valójában az adat három fő tulajdonságát használják ki:
 
-1. **Szeparálhatóság:** Minden előfizető tornya egy adott időpontban jól predikálható a korábban meglátogatott tornyokból; az időben következő torony szinte mindig  közel van  földrajzilag az éppen meglátogatott toronyhoz. Ezt azt is jelenti, hogy az előfizetők (ill. rekordjaik) jól szeparálhatók, hiszen ha két rekord $t$ időpontban távol van egymástól, azok jó eséllyel a $(t+1)$-ben is távol lesznek egymástól. 
+1. **Predikálhatóság:** Minden előfizető tornya egy adott időpontban jól becsülhető a korábban meglátogatott tornyokból; az időben következő torony szinte mindig  közel van  földrajzilag az éppen meglátogatott toronyhoz. Ezt azt is jelenti, hogy az előfizetők (ill. rekordjaik) jól szeparálhatók, hiszen ha két rekord $t$ időpontban távol van egymástól, azok jó eséllyel a $(t+1)$-ben is távol lesznek egymástól. 
 
 2. **Regularitás:** Az előfizetők többsége minden nap hasonló (gyakran ugyanazon) tornyokat látogatja meg hasonló időkben, mivel a legtöbb ember napi rutinjai azonosak.
 
@@ -148,7 +149,7 @@ A három tulajdonságot szemlélteti az alábbi ábra, ahol 5 különböző elő
 
 ![alt text](http://blog.crysys.hu/wp-content/uploads/2017/08/records.png) 
 
-A támadás először a rekordok szeparálhatóságát felhasználva rekonstruálja a rekordokat (azaz az $\mathbf{Y}^t$ mátrixot) minden $t$-re egy napon belül, feltéve, hogy $\mathbf{P}^t$ ismert. 
+A támadás először a rekordok predikálhatóságát felhasználva rekonstruálja a rekordokat (azaz az $\mathbf{Y}^t$ mátrixot) minden $t$-re egy napon belül, feltéve, hogy $\mathbf{P}^t$ ismert. 
 Ezt megismétli minden egyes napra külön-külön. Végül a rekordok regularitását és egyediségét felhasználva az azonos előfizetőhöz tartozó rekonstruált rekordokat összerendeli a napok között.
 
 #### $\mathbf{Y}^t$ rekonstruálása adott $t$ időpontban
@@ -217,12 +218,12 @@ Láthattuk, hogy statisztikai adatok azért minősülhetnek személyesnek, mert 
 
 Hogyan védekezhetünk? Alapvetően két megközelítés létezik: 
 
-1. **A lekérdezések auditálása** ([query auditing](http://theory.stanford.edu/~nmishra/SimulatableAuditing.pdf)), vagyis annak ellenőrzése, hogy lekérdezések egy adott halmaza lehetővé teszi-e valamely rekord rekonstruálását (pl. a fentihez hasonló egyenletrendszer megoldásával). 
+1. **A lekérdezések auditálása** ([query auditing](http://theory.stanford.edu/~nmishra/SimulatableAuditing.pdf)), vagyis annak ellenőrzése, hogy a megválaszolandó lekérdezések lehetővé teszik-e valamely rekord rekonstruálását (pl. a fentihez hasonló egyenletrendszer megoldásával). 
 Ez általános esetben viszont [nehéz probléma](https://dl.acm.org/citation.cfm?id=335210). 
 A másik gond, hogy a legtöbb auditálási eljárás feltételezi, hogy a támadónak nincs háttértudása a rekordokról. Ahogy fent láttuk, ez a gyakorlatban nem mindig igaz; pl. ismerhet néhány rekordot, vagy ismeretlen rekordokról lehet részleges tudása. Ez a támadót segítheti, viszont ezt a háttértudást a gyakorlatban szinte lehetetlen modellezni az egyének magukról vagy másokról megosztott információk sokasága miatt.
-2. **A lekérdezések eredményeinek zajosítása/randomizálása** ([query perturbation](http://people.csail.mit.edu/asmith/PS/sensitivity-tcc-final.pdf)), vagyis mielőtt kiadnánk a lekérdezések eredményét, hozzáadunk azokhoz  egy zérus várható értékű $\lambda$ szórású zajt. Ha $\lambda$ (és így a zaj nagysága) kisebb, az érték pontosabb, viszont a fenti támadások nagyobb eséllyel működhetnek. Ha $\lambda$ nagyobb, akkor az adat jobban védett a nagyobb zaj miatt, és a fenti támadások kisebb eséllyel működnek (viszont a kiadott adat is pontatlanabb). 
+2. **A lekérdezések eredményeinek zajosítása/randomizálása** ([query perturbation](http://people.csail.mit.edu/asmith/PS/sensitivity-tcc-final.pdf)), vagyis mielőtt kiadnánk a lekérdezések eredményét, hozzáadunk azokhoz  egy zérus várható értékű $\lambda$ szórású zajt. Ha $\lambda$ (és így a zaj várható nagysága) kisebb, az érték pontosabb, viszont a fenti támadások nagyobb eséllyel működhetnek. Ha $\lambda$ nagyobb, akkor az adat jobban védett a nagyobb zaj miatt, és a fenti támadások kisebb eséllyel működnek (viszont a kiadott adat is pontatlanabb). 
 **Ez egy alapvető kompromisszum a statisztikai adatok hasznossága (pontossága) és a személyes adatok védelme között az informatikában**.
-A zaj nagyságának megfelelő beállítása külön szakértelmet igényel, ami a manapság egyre szélesebb körben alkalmazott [Differential privacy](https://en.wikipedia.org/wiki/Differential_privacy)-nek is az alapja. A gyakorlatban ezt a megközelítést alkalmazta már a [Google](https://www.cnet.com/news/how-google-tricks-itself-to-protect-chrome-user-privacy/), majd később az [Apple](https://www.wired.com/2016/06/apples-differential-privacy-collecting-data/) és [Uber](https://www.wired.com/story/uber-privacy-elastic-sensitivity/) is.  
+A zaj nagyságának megfelelő beállítása nem könnyű és szakértelmet igényel, ami a manapság egyre szélesebb körben alkalmazott [Differential privacy](https://en.wikipedia.org/wiki/Differential_privacy)-nek is az alapja. A gyakorlatban ezt a megközelítést alkalmazta már a [Google](https://www.cnet.com/news/how-google-tricks-itself-to-protect-chrome-user-privacy/), majd később az [Apple](https://www.wired.com/2016/06/apples-differential-privacy-collecting-data/) és [Uber](https://www.wired.com/story/uber-privacy-elastic-sensitivity/) is.  
 
 <!---
 ‘personal data’ means any information relating to an identified or identifiable natural person (‘data subject’); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person;
