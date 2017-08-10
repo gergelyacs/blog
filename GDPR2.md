@@ -214,7 +214,7 @@ az előfizetők azonosításához szükséges 4-5 torony meghatározása könny�
 
 # Konklúzió
 
-Láthattuk, hogy statisztikai adatok azért minősülhetnek személyesnek, mert azokból az eredeti adatbázis  rekordjainak nagy része gyakran helyreállítható. Ennek oka, hogy **ha túl sok aggregált adatot adunk ki (pl. túl sok lekérdezést válaszolunk meg), akkor még ha egyenként nem is, de a válaszok együttvéve jelentős információt szivárogtatnak ki az adatbázis egyes rekordjairól**. Azt is láthattuk, hogy a lekérdezések tiltása az eredményeik nagysága alapján (vagyis amikor túl kicsi eredményű lekérdezést nem válaszolunk meg) nem feltétlen nyújt védelmet az ilyen támadások ellen, mivel nem a lekérdezések értéke, hanem a megválaszolt lekérdezések száma számít.
+Láthattuk, hogy statisztikai adatok azért minősülhetnek személyesnek, mert azokból az eredeti adatbázis  rekordjainak nagy része gyakran helyreállítható. Ennek oka, hogy **ha túl sok aggregált adatot adunk ki (pl. túl sok lekérdezést válaszolunk meg), akkor még ha egyenként nem is, de a válaszok együttvéve jelentős információt szivárogtatnak ki az adatbázis egyes rekordjairól**. Azt is láthattuk, hogy a lekérdezések tiltása az eredményeik nagysága alapján (vagyis amikor túl kicsi eredményű lekérdezést nem válaszolunk meg) nem feltétlen nyújt védelmet az ilyen támadások ellen, mivel nem a lekérdezések értéke, hanem a megválaszolt lekérdezések száma és a támadó háttértudása (pl. az adat jellemzői) számítanak.
 
 Hogyan védekezhetünk? Alapvetően két megközelítés létezik: 
 
