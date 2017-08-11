@@ -56,7 +56,7 @@ Először ezt egy olyan példán mutatjuk be, ahol a támadó a lekérdezéseket
 
 ## Globális támadás 1: Rekordok interaktív helyreállítása
 A támadás alapötlete, hogy minden egyes megválaszolt lekérdezéssel növeljük egy sikeres differencing támadás esélyét valamely rekordra.
-Kicsit pontosabban, minden megválaszolt lekérdezés egy lineáris egyenletet definiál a rekordokon mint ismeretleneken. Ha elég sok egyenletünk (megválaszolt lekérdezésünk) van, akkor azok egyértelműen megoldhatóvá válnak és az ismeretlenek (rekordok) meghatározhatók.
+Kicsit pontosabban, minden megválaszolt lekérdezés egy lineáris egyenletet definiál a lefedett rekordokon mint ismeretleneken. Ha elég sok egyenletünk (megválaszolt lekérdezésünk) van, akkor azok egyértelműen megoldhatóvá válnak és az ismeretlenek (rekordok) meghatározhatók.
 
 Vegyük példaként a 2. és 3. táblázatot, ahol a 2. táblázat a 3. táblázatban szereplő egyének kvázi azonosítóit tartalmazza. A 3. táblázat
 első attribútuma az illető korának felel meg (ugyanaz mint a 2. táblázat 3. oszlopa), a többi attribútumok pedig Budapest főbb helyeit ([POI](https://hu.wikipedia.org/wiki/POI)) reprezentálják, és értékük 1, ha az illető meglátogatta az adott helyet, egyébként nulla. Tegyük fel, hogy a két táblázat rekordjai ugyanahhoz a személyhez tartoznak (vagyis a 3. táblázat $i$-ik sora és 4. táblázat $i$-ik sora ugyanazon személy adatai).  
