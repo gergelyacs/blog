@@ -227,7 +227,7 @@ Viszont az eddigiek tükrében két problémával érdemes számolni:
 **Ez egy alapvető kompromisszum a statisztikai adatok hasznossága (pontossága) és a személyes adatok védelme között az informatikában**.
 A zaj nagyságának megfelelő beállítása nem könnyű és szakértelmet igényel, ami a manapság egyre szélesebb körben alkalmazott [Differential privacy](https://en.wikipedia.org/wiki/Differential_privacy)-nek is az alapja. A gyakorlatban ezt a megközelítést alkalmazta már a [Google](https://www.cnet.com/news/how-google-tricks-itself-to-protect-chrome-user-privacy/), majd később az [Apple](https://www.wired.com/2016/06/apples-differential-privacy-collecting-data/) és [Uber](https://www.wired.com/story/uber-privacy-elastic-sensitivity/) is. 
 
-A CrySyS laborban [lekérdezések auditálásával](http://www.hit.bme.hu/~buttyan/publications.html#TaB12trustbus) illetve azok [eredményeinek torzításával](https://www.crysys.hu/~acs/publications/AcsC14kdd.pdf) is aktívan   foglalkozunk.  
+A CrySyS laborban [lekérdezések auditálásával](http://www.hit.bme.hu/~buttyan/publications.html#TaB12trustbus) illetve  [lekérdezések eredményeinek torzításával](https://www.crysys.hu/~acs/publications/AcsC14kdd.pdf) is aktívan   foglalkozunk.  
 
 <!---
 ‘personal data’ means any information relating to an identified or identifiable natural person (‘data subject’); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person;
