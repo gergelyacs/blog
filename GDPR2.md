@@ -153,7 +153,7 @@ A három tulajdonságot szemlélteti az alábbi ábra, ahol 5 különböző elő
 A támadás először a rekordok predikálhatóságát felhasználva rekonstruálja a rekordokat (azaz az $\mathbf{Y}^t$ mátrixot) minden $t$-re egy napon belül, feltéve, hogy $\mathbf{P}^t$ ismert. 
 Ezt megismétli minden egyes napra külön-külön. Végül a rekordok regularitását és egyediségét felhasználva az azonos előfizetőhöz tartozó rekonstruált rekordokat összerendeli a napok között.
 
-#### $\mathbf{Y}^t$ rekonstruálása adott $t$ időpontban
+#### Rekordok rekonstruálása adott $t$ időpontban
 
 Tegyük fel, hogy a $(t-1)$-beli toronylátogatások ismertek $\mathbf{Y}^{t-1}$ formájában, valamint az összes torony látogatottsága $t$-ben $\mathbf{P}^t$ formájában. Hogyan tudnánk ezekből rekonstruálni $\mathbf{Y}^{t}$-t?
 Ha egy előfizető a $(t-1)$-ben a $T_j$ tornyot látogatta meg, akkor jó eséllyel a $t$ időpontban a $T_j$ toronyhoz közelebbi tornyokat fogja meglátogatni, vagyis lesznek tornyok amiket nagyobb eséllyel látogat meg, és lesznek amiket kisebb eséllyel a korábban meglátogatott tornyok (pl. $T_j$) függvényében. Így minden előfizető-torony $(i,j)$ párhoz hozzá tudunk rendelni egy $c_{i,j}^t$ "költséget" az idő függvényében, aminek értéke nagyobb, ha az $i$ előfizető kisebb eséllyel látogatta meg a $T_j$ tornyot, és kisebb, ha nagyobb eséllyel látogatta azt meg a $t$ időpontban. **Keressük azt az előfizetők és tornyok közötti összerendelést $t$ időpontban (vagyis $\mathbf{Y}^{t}$-t), ami az összes előfizetőhöz az általuk legnagyobb eséllyel meglátogatott tornyokat rendeli.**
